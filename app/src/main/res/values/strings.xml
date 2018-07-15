@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">Clowyer</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="register">Registrar</string>
+    <string name="login">Ingresar</string>
+    <string name="mail">Correo</string>
+    <string name="password">Contraseña</string>
+    <string name="identification">Cedula</string>
+    <string name="name">Nombre</string>
+    <string name="speciality">Especialidad</string>
+    <string name="phone">Telefono</string>
+    <string name="toolbar_title_register">Crear Cuenta</string>
+</resources>
