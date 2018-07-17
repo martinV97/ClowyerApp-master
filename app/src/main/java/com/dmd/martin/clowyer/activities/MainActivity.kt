@@ -40,22 +40,22 @@ class MainActivity : AppCompatActivity() , ViewPager.OnPageChangeListener, TabHo
 
     @RequiresApi(Build.VERSION_CODES.LOLLIPOP)
     private fun initTabHost() {
-        val tabNames = arrayOf("Casos", "Clientes", "Juzgados", "Cuenta")
+        val tabNames = arrayOf(getString(R.string.Cases), getString(R.string.Clients), getString(R.string.Courts), getString(R.string.Account))
         var spec: TabHost.TabSpec?
         for (tab in tabNames){
-            spec = tabHost.newTabSpec(tab.toString())
-            when(tab.toString()){
-                    "Casos" ->{
-                        spec.setIndicator(tab, getDrawable(R.drawable.folder))
+            spec = tabHost.newTabSpec(tab)
+            when(tab){
+                getString(R.string.Cases) ->{
+                        spec.setIndicator(tab, resources.getDrawable(R.drawable.folder, theme))
                     }
-                    "Clientes" -> {
-                        spec.setIndicator(tab, getDrawable(R.drawable.client))
+                getString(R.string.Clients) -> {
+                        spec.setIndicator(tab, resources.getDrawable(R.drawable.client, theme))
                     }
-                    "Juzgados" -> {
-                        spec.setIndicator(tab, getDrawable(R.drawable.court))
+                getString(R.string.Courts) -> {
+                        spec.setIndicator(tab, resources.getDrawable(R.drawable.court, theme))
                     }
-                    "Cuenta" -> {
-                        spec.setIndicator(tab, getDrawable(R.drawable.account))
+                getString(R.string.Account) -> {
+                        spec.setIndicator(tab, resources.getDrawable(R.drawable.account, theme))
                     }
             }
             spec.setContent(FakeContent(this))

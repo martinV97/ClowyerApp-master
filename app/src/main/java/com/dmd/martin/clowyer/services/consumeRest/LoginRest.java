@@ -64,7 +64,6 @@ public class LoginRest extends AsyncTask<Void, Integer, Void> {
         call.enqueue(new Callback<ItemLawyer>() {
             @Override
             public void onResponse(Call<ItemLawyer> call, Response<ItemLawyer> response) {
-                progressBar.setVisibility(View.INVISIBLE);
                 Constants.Companion.setLawyer(response.body());
                 Intent intent = new Intent(activity, LoadActivity.class);
                 activity.startActivity(intent);
@@ -73,9 +72,16 @@ public class LoginRest extends AsyncTask<Void, Integer, Void> {
 
             @Override
             public void onFailure(Call<ItemLawyer> call, Throwable t) {
-                progressBar.setVisibility(View.INVISIBLE);
-                Toast.makeText(activity, t.getMessage(), Toast.LENGTH_SHORT).show();
+                Toast.makeText(activity, "Error al iniciar sesion.", Toast.LENGTH_SHORT).show();
             }
         });
+    }
+
+    @Override
+    protected void onPostExecute(Void aVoid) {
+        if (loadImage != null && progressBar != null){
+            loadImage.setVisibility(View.INVISIBLE);
+            progressBar.setVisibility(View.INVISIBLE);
+        }
     }
 }

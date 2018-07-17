@@ -8,9 +8,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.BaseAdapter
-import android.widget.Button
 import android.widget.TextView
-import com.dmd.martin.clowyer.activities.CaseActivity
 import com.dmd.martin.clowyer.R
 import com.dmd.martin.clowyer.activities.LoadCaseActivity
 import com.dmd.martin.clowyer.entity.ItemCase
@@ -33,8 +31,8 @@ class CaseItemAdapter(var context: Context, private var  items:List<ItemCase>)  
         var rowView: View? = convertView
         val layoutInflater = context.getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
         rowView = layoutInflater.inflate(R.layout.activity_case_item, null)
-        val tVNameCase = rowView.findViewById<TextView>(R.id.tVNameCaseItem)
-        val tVNumberCase = rowView.findViewById<TextView>(R.id.tVNumberCaseItem)
+        val tVNameCase = rowView.findViewById<TextView>(R.id.nameCaseCard)
+        val tVNumberCase = rowView.findViewById<TextView>(R.id.numberCaseCard)
         val tvCourtCase = rowView.findViewById<TextView>(R.id.tVCourtCaseItem)
         val fabLookCase = rowView.findViewById<FloatingActionButton>(R.id.fabLookCase)
         val item = this.items!![position]

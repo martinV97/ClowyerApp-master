@@ -13,4 +13,8 @@
     <string name="phone">Telefono</string>
     <string name="toolbar_title_register">Crear Cuenta</string>
     <string name="slogan">Tus casos en la nube</string>
+    <string name="Cases">Casos</string>
+    <string name="Clients">Clientes</string>
+    <string name="Courts">Juzgados</string>
+    <string name="Account">Cuenta</string>
 </resources>

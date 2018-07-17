@@ -7,7 +7,7 @@
     android:background="@android:color/background_light">
 
     <TextView
-        android:id="@+id/tVNameCaseItem"
+        android:id="@+id/nameCaseCard"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="16dp"
@@ -22,7 +22,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/tVNumberCaseItem"
+        android:id="@+id/numberCaseCard"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
@@ -32,7 +32,7 @@
         android:textColor="@color/colorPrimary"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tVNameCaseItem" />
+        app:layout_constraintTop_toBottomOf="@+id/nameCaseCard" />
 
     <TextView
         android:id="@+id/tVCourtCaseItem"
@@ -45,7 +45,7 @@
         android:textAppearance="@style/TextAppearance.AppCompat.Small.Inverse"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tVNumberCaseItem" />
+        app:layout_constraintTop_toBottomOf="@+id/numberCaseCard" />
 
     <android.support.design.widget.FloatingActionButton
         android:id="@+id/fabLookCase"
@@ -59,7 +59,7 @@
         app:backgroundTint="@color/colorPrimary"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/fabDeleteCase"
-        app:layout_constraintTop_toBottomOf="@+id/tVNameCaseItem"
+        app:layout_constraintTop_toBottomOf="@+id/nameCaseCard"
         app:srcCompat="@drawable/eye" />
 
     <android.support.design.widget.FloatingActionButton
@@ -74,7 +74,7 @@
         app:backgroundTint="@color/colorPrimary"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tVNameCaseItem"
+        app:layout_constraintTop_toBottomOf="@+id/nameCaseCard"
         app:srcCompat="@drawable/delete" />
 
 </android.support.constraint.ConstraintLayout>
