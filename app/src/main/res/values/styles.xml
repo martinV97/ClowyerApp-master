@@ -20,5 +20,11 @@
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
     </style>
+
+    <style name="ButtonImageDelete" parent="Base.Widget.AppCompat.ImageButton">
+        <item name="android:drawable">@drawable/delete_cross</item>
+        <item name="colorButtonNormal">@android:color/transparent</item>
+        <item name="colorControlHighlight"> @color/colorPrimary</item>
+    </style>
     
 </resources>
