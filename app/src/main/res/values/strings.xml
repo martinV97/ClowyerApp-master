@@ -19,4 +19,6 @@
     <string name="Account">Cuenta</string>
     <string name="login_error">Error al iniciar sesion.</string>
     <string name="Image">Imagen</string>
+    <string name="tel_abbreviation">Tel: </string>
+    <string name="number_abbreviation">No: </string>
 </resources>

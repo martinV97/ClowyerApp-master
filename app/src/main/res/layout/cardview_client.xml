@@ -2,21 +2,21 @@
 <android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:cardView="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/caseCard"
+    android:id="@+id/clientCard"
     android:layout_width="match_parent"
-    android:layout_height="170dp"
+    android:layout_height="180dp"
     android:layout_margin="5dp"
     cardView:cardBackgroundColor="@android:color/white"
     cardView:cardCornerRadius="5dp"
     cardView:cardElevation="10dp">
 
     <android.support.constraint.ConstraintLayout
-        android:id="@+id/caseCardLayout"
+        android:id="@+id/clientCardLayout"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
         <TextView
-            android:id="@+id/nameCaseCard"
+            android:id="@+id/nameClientCard"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginEnd="8dp"
@@ -31,44 +31,53 @@
             cardView:layout_constraintTop_toTopOf="parent" />
 
         <ImageView
-            android:id="@+id/caseIcon"
+            android:id="@+id/clientIcon"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
             android:layout_marginTop="16dp"
             cardView:layout_constraintStart_toStartOf="parent"
             cardView:layout_constraintTop_toTopOf="parent"
-            cardView:srcCompat="@drawable/case_icon" />
+            cardView:srcCompat="@drawable/client_icon" />
 
         <TextView
-            android:id="@+id/numberCaseCard"
+            android:id="@+id/idClientCard"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
             android:layout_marginTop="16dp"
-            android:text="TextView"
+            android:text="1234567890"
             android:textAppearance="@style/TextAppearance.AppCompat"
-            android:textColor="@color/colorPrimary"
+            android:textColor="@color/colorPrimaryDark"
             android:textStyle="bold"
             cardView:layout_constraintStart_toStartOf="parent"
-            cardView:layout_constraintTop_toBottomOf="@+id/caseIcon" />
+            cardView:layout_constraintTop_toBottomOf="@+id/clientIcon" />
 
         <TextView
-            android:id="@+id/courtCaseCard"
-            android:layout_width="250dp"
+            android:id="@+id/phoneClientCard"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
             android:layout_marginTop="8dp"
             android:text="TextView"
             android:textAppearance="@style/TextAppearance.AppCompat.Small.Inverse"
             cardView:layout_constraintStart_toStartOf="parent"
-            cardView:layout_constraintTop_toBottomOf="@+id/numberCaseCard" />
+            cardView:layout_constraintTop_toBottomOf="@+id/idClientCard" />
+
+        <ImageView
+            android:id="@+id/typeClientCard"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="16dp"
+            cardView:layout_constraintStart_toEndOf="@+id/idClientCard"
+            cardView:layout_constraintTop_toBottomOf="@+id/clientIcon" />
 
         <android.support.v7.widget.CardView
-            android:id="@+id/bottomCardBarCourt"
+            android:id="@+id/bottomCardBarClient"
             android:layout_width="0dp"
             android:layout_height="40dp"
-            cardView:cardBackgroundColor="@color/colorPrimary"
+            cardView:cardBackgroundColor="@color/colorPrimaryDark"
             cardView:cardCornerRadius="5dp"
             cardView:cardElevation="3dp"
             cardView:layout_constraintBottom_toBottomOf="parent"
@@ -82,7 +91,7 @@
                 android:orientation="horizontal">
 
                 <ImageButton
-                    android:id="@+id/imageButtonCaseDetails"
+                    android:id="@+id/imageButtonClientDetails"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
@@ -92,7 +101,7 @@
                     cardView:srcCompat="@drawable/eye" />
 
                 <ImageButton
-                    android:id="@+id/imageButtonDeleteCase"
+                    android:id="@+id/imageButtonDeleteClient"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
@@ -103,4 +112,5 @@
         </android.support.v7.widget.CardView>
 
     </android.support.constraint.ConstraintLayout>
+
 </android.support.v7.widget.CardView>

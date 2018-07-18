@@ -23,7 +23,7 @@ class CaseAdapterRecyclerView(var items: List<ItemCase>, var activity: Activity?
     override fun onBindViewHolder(holder: CaseViewHolder, position: Int) {
         val case = items[position]
         holder.tVNameCase.text = case.getName()
-        holder.tVNumberCase.text = case.getNumber()
+        holder.tVNumberCase.text = activity!!.getString(R.string.number_abbreviation) + case.getNumber()
         holder.tvCourtCase.text = case.getCourtName()
         holder.imageButtonCaseDetails.setOnClickListener {
             var bundle = Bundle()
@@ -40,9 +40,9 @@ class CaseAdapterRecyclerView(var items: List<ItemCase>, var activity: Activity?
 
     class CaseViewHolder(itemView: View?) : RecyclerView.ViewHolder(itemView) {
         var tVNameCase = itemView!!.findViewById<TextView>(R.id.nameCaseCard)!!
-        var tVNumberCase = itemView!!.findViewById<TextView>(R.id.phoneCourtCard)!!
+        var tVNumberCase = itemView!!.findViewById<TextView>(R.id.numberCaseCard)!!
         var tvCourtCase = itemView!!.findViewById<TextView>(R.id.courtCaseCard)!!
-        var imageButtonCaseDetails = itemView!!.findViewById<ImageButton>(R.id.imageButtonCaseDetails)
-        var imageButtonDeleteCase = itemView!!.findViewById<ImageButton>(R.id.imageButtonDeleteCase)
+        var imageButtonCaseDetails = itemView!!.findViewById<ImageButton>(R.id.imageButtonCaseDetails)!!
+        var imageButtonDeleteCase = itemView!!.findViewById<ImageButton>(R.id.imageButtonDeleteCase)!!
     }
 }

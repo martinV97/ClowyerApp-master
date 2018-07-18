@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:cardView="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/caseCard"
     android:layout_width="match_parent"
     android:layout_height="170dp"
@@ -13,6 +14,16 @@
         android:id="@+id/caseCardLayout"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
+
+        <ImageView
+            android:id="@+id/courtIcon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            cardView:layout_constraintStart_toStartOf="parent"
+            cardView:layout_constraintTop_toTopOf="parent"
+            cardView:srcCompat="@drawable/court_icon" />
 
         <TextView
             android:id="@+id/nameCourtCard"
@@ -33,35 +44,25 @@
             android:id="@+id/phoneCourtCard"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="16dp"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="32dp"
             android:text="TextView"
             android:textAppearance="@style/TextAppearance.AppCompat"
             android:textColor="@color/colorPrimary"
             android:textStyle="bold"
-            cardView:layout_constraintStart_toStartOf="parent"
+            cardView:layout_constraintStart_toEndOf="@+id/typeCourtCard"
             cardView:layout_constraintTop_toBottomOf="@+id/courtIcon" />
 
         <TextView
             android:id="@+id/typeCourtCard"
-            android:layout_width="250dp"
+            android:layout_width="125dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
-            android:layout_marginTop="8dp"
+            android:layout_marginTop="32dp"
             android:text="TextView"
             android:textAppearance="@style/TextAppearance.AppCompat.Small.Inverse"
             cardView:layout_constraintStart_toStartOf="parent"
-            cardView:layout_constraintTop_toBottomOf="@+id/phoneCourtCard" />
-
-        <ImageView
-            android:id="@+id/courtIcon"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="16dp"
-            cardView:layout_constraintStart_toStartOf="parent"
-            cardView:layout_constraintTop_toTopOf="parent"
-            cardView:srcCompat="@drawable/case_icon" />
+            cardView:layout_constraintTop_toBottomOf="@+id/courtIcon" />
 
         <android.support.v7.widget.CardView
             android:id="@+id/bottomCardBarCourt"
@@ -84,7 +85,6 @@
                     android:id="@+id/imageButtonCourtDetails"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
-                    android:layout_margin="5dp"
                     android:layout_weight="1"
                     android:background="@android:color/transparent"
                     cardView:layout_constraintBottom_toBottomOf="parent"
@@ -95,7 +95,6 @@
                     android:id="@+id/imageButtonDeleteCourt"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
-                    android:layout_margin="5dp"
                     android:layout_weight="1"
                     android:background="@android:color/transparent"
                     cardView:srcCompat="@drawable/delete_cross_white" />

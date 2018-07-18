@@ -32,10 +32,6 @@ class CaseFragment : Fragment() {
         recyclerCases.layoutManager = linearLayout
         var adapter = CaseAdapterRecyclerView(Constants.listCases, activity, R.layout.cardview_case)
         recyclerCases.adapter = adapter
-        recyclerCases.setOnClickListener{
-            var position = recyclerCases.indexOfChild(view)
-            Toast.makeText(context, Constants.listCases[position].getName(), Toast.LENGTH_SHORT).show()
-        }
     }
 
 

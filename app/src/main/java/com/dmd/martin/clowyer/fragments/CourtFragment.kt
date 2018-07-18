@@ -1,14 +1,15 @@
 package com.dmd.martin.clowyer.fragments
 
-
 import android.os.Bundle
 import android.support.v4.app.Fragment
+import android.support.v7.widget.LinearLayoutManager
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.LinearLayout
 
 import com.dmd.martin.clowyer.R
-import com.dmd.martin.clowyer.adapters.CourtItemAdapter
+import com.dmd.martin.clowyer.adapters.CourtAdapterRecyclerView
 import com.dmd.martin.clowyer.constants.Constants
 import kotlinx.android.synthetic.main.fragment_court.*
 
@@ -24,7 +25,11 @@ class CourtFragment : Fragment() {
     }
 
     private fun fillListCourts(){
-        listCourt.adapter = CourtItemAdapter(this.context!!, Constants.listCourts!!)
+        var linearLayout = LinearLayoutManager(context)
+        linearLayout.orientation = LinearLayout.VERTICAL
+        recyclerCourt.layoutManager = linearLayout
+        var adapter = CourtAdapterRecyclerView(Constants.listCourts, activity, R.layout.cardview_court)
+        recyclerCourt.adapter = adapter
     }
 
     override fun onResume() {
