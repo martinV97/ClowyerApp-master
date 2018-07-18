@@ -8,6 +8,7 @@ import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 
+import com.dmd.martin.clowyer.R;
 import com.dmd.martin.clowyer.activities.LoadActivity;
 import com.dmd.martin.clowyer.activities.MainActivity;
 import com.dmd.martin.clowyer.constants.Constants;
@@ -64,6 +65,8 @@ public class LoginRest extends AsyncTask<Void, Integer, Void> {
         call.enqueue(new Callback<ItemLawyer>() {
             @Override
             public void onResponse(Call<ItemLawyer> call, Response<ItemLawyer> response) {
+                loadImage.setVisibility(View.INVISIBLE);
+                progressBar.setVisibility(View.INVISIBLE);
                 Constants.Companion.setLawyer(response.body());
                 Intent intent = new Intent(activity, LoadActivity.class);
                 activity.startActivity(intent);
@@ -72,16 +75,10 @@ public class LoginRest extends AsyncTask<Void, Integer, Void> {
 
             @Override
             public void onFailure(Call<ItemLawyer> call, Throwable t) {
-                Toast.makeText(activity, "Error al iniciar sesion.", Toast.LENGTH_SHORT).show();
+                loadImage.setVisibility(View.INVISIBLE);
+                progressBar.setVisibility(View.INVISIBLE);
+                Toast.makeText(activity, R.string.login_error, Toast.LENGTH_SHORT).show();
             }
         });
-    }
-
-    @Override
-    protected void onPostExecute(Void aVoid) {
-        if (loadImage != null && progressBar != null){
-            loadImage.setVisibility(View.INVISIBLE);
-            progressBar.setVisibility(View.INVISIBLE);
-        }
     }
 }

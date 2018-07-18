@@ -9,8 +9,9 @@
     <ImageView
         android:id="@+id/imageViewBackgroundBanner"
         android:layout_width="0dp"
-        android:layout_height="50dp"
+        android:layout_height="30dp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@color/colorPrimary" />
@@ -27,7 +28,7 @@
         android:textAlignment="center"
         android:textAllCaps="true"
         android:textColor="@android:color/white"
-        android:textSize="30sp"
+        android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="@+id/imageViewBackgroundBanner"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="@+id/imageViewBackgroundBanner"
@@ -37,6 +38,7 @@
         android:id="@+id/tabHost"
         android:layout_width="0dp"
         android:layout_height="0dp"
+        android:theme="@style/TabWidgetTheme"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -47,10 +49,23 @@
             android:layout_height="match_parent"
             android:orientation="vertical">
 
+            <FrameLayout
+                android:id="@android:id/tabcontent"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1">
+
+                <android.support.v4.view.ViewPager
+                    android:id="@+id/viewPagerMain"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" />
+            </FrameLayout>
+
             <HorizontalScrollView
                 android:id="@+id/horizontalScrollViewMain"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:elevation="10dp">
 
                 <LinearLayout
                     android:layout_width="wrap_content"
@@ -61,21 +76,13 @@
                         android:id="@android:id/tabs"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:background="@color/colorPrimaryDark" />
+                        android:layout_weight="0"
+                        android:background="@color/colorAccent"/>
                 </LinearLayout>
             </HorizontalScrollView>
 
-            <FrameLayout
-                android:id="@android:id/tabcontent"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent">
-
-                <android.support.v4.view.ViewPager
-                    android:id="@+id/viewPagerMain"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent" />
-            </FrameLayout>
         </LinearLayout>
+
     </TabHost>
 
 </android.support.constraint.ConstraintLayout>

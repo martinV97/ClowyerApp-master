@@ -1,18 +1,18 @@
 package com.dmd.martin.clowyer.fragments
 
-import android.content.Intent
 import android.os.Bundle
 import android.support.v4.app.Fragment
+import android.support.v7.widget.LinearLayoutManager
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.LinearLayout
+import android.widget.Toast
+
 
 import com.dmd.martin.clowyer.R
-import com.dmd.martin.clowyer.activities.CaseActivity
-import com.dmd.martin.clowyer.activities.LoadActivity
-import com.dmd.martin.clowyer.adapters.CaseItemAdapter
+import com.dmd.martin.clowyer.adapters.CaseAdapterRecyclerView
 import com.dmd.martin.clowyer.constants.Constants
-import kotlinx.android.synthetic.main.activity_case.*
 import kotlinx.android.synthetic.main.fragment_case.*
 
 class CaseFragment : Fragment() {
@@ -27,7 +27,15 @@ class CaseFragment : Fragment() {
     }
 
     private fun fillListCases(){
-        listCase.adapter = CaseItemAdapter(this.context!!, Constants.listCases!!)
+        var linearLayout = LinearLayoutManager(context)
+        linearLayout.orientation = LinearLayout.VERTICAL
+        recyclerCases.layoutManager = linearLayout
+        var adapter = CaseAdapterRecyclerView(Constants.listCases, activity, R.layout.cardview_case)
+        recyclerCases.adapter = adapter
+        recyclerCases.setOnClickListener{
+            var position = recyclerCases.indexOfChild(view)
+            Toast.makeText(context, Constants.listCases[position].getName(), Toast.LENGTH_SHORT).show()
+        }
     }
 
 

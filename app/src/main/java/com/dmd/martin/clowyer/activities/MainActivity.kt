@@ -44,6 +44,8 @@ class MainActivity : AppCompatActivity() , ViewPager.OnPageChangeListener, TabHo
         var spec: TabHost.TabSpec?
         for (tab in tabNames){
             spec = tabHost.newTabSpec(tab)
+            if(tab == getString(R.string.Cases))
+                spec.setIndicator(tab, resources.getDrawable(R.drawable.folder))
             when(tab){
                 getString(R.string.Cases) ->{
                         spec.setIndicator(tab, resources.getDrawable(R.drawable.folder, theme))

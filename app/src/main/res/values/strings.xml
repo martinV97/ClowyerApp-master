@@ -17,4 +17,6 @@
     <string name="Clients">Clientes</string>
     <string name="Courts">Juzgados</string>
     <string name="Account">Cuenta</string>
+    <string name="login_error">Error al iniciar sesion.</string>
+    <string name="Image">Imagen</string>
 </resources>
