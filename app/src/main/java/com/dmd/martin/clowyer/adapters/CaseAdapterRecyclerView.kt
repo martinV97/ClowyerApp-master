@@ -40,7 +40,7 @@ class CaseAdapterRecyclerView(var items: List<ItemCase>, var activity: Activity?
 
     class CaseViewHolder(itemView: View?) : RecyclerView.ViewHolder(itemView) {
         var tVNameCase = itemView!!.findViewById<TextView>(R.id.nameCaseCard)!!
-        var tVNumberCase = itemView!!.findViewById<TextView>(R.id.numberCaseCard)!!
+        var tVNumberCase = itemView!!.findViewById<TextView>(R.id.phoneCourtCard)!!
         var tvCourtCase = itemView!!.findViewById<TextView>(R.id.courtCaseCard)!!
         var imageButtonCaseDetails = itemView!!.findViewById<ImageButton>(R.id.imageButtonCaseDetails)
         var imageButtonDeleteCase = itemView!!.findViewById<ImageButton>(R.id.imageButtonDeleteCase)
