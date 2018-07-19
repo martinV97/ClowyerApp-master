@@ -10,9 +10,7 @@ import android.widget.LinearLayout
 
 import com.dmd.martin.clowyer.R
 import com.dmd.martin.clowyer.adapters.ClientAdapterRecyclerView
-import com.dmd.martin.clowyer.adapters.ClientItemAdapter
 import com.dmd.martin.clowyer.constants.Constants
-import kotlinx.android.synthetic.main.fragment_case.*
 import kotlinx.android.synthetic.main.fragment_client.*
 
 class ClientFragment : Fragment() {
