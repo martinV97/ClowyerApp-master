@@ -21,4 +21,7 @@
     <string name="Image">Imagen</string>
     <string name="tel_abbreviation">Tel: </string>
     <string name="number_abbreviation">No: </string>
+    <string name="load_data_message">Cargando Datos</string>
+    <string name="rights_message">Todos los derechos reservados.</string>
+    <string name="error_loading_docs">Error cargando Documentos</string>
 </resources>

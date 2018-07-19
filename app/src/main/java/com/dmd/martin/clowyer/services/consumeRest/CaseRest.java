@@ -52,6 +52,7 @@ public class CaseRest  extends AsyncTask<Void, Integer, Void> {
                 Constants.Companion.setListCases(response.body());
                 Intent intent = new Intent(activity, MainActivity.class);
                 activity.startActivity(intent);
+                activity.overridePendingTransition(0, 0);
                 activity.finish();
             }
 

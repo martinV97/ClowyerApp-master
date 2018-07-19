@@ -1,100 +1,43 @@
 package com.dmd.martin.clowyer.activities
 
 import android.content.Intent
-import android.net.Uri
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import com.dmd.martin.clowyer.R
-import com.dmd.martin.clowyer.adapters.DocItemAdapter
 import com.dmd.martin.clowyer.constants.Constants
 import kotlinx.android.synthetic.main.activity_case.*
-import android.graphics.BitmapFactory
-import android.graphics.Bitmap
-import android.app.Activity
-import android.graphics.drawable.BitmapDrawable
-import android.widget.Toast
-import com.google.android.gms.vision.Frame
-import com.google.android.gms.vision.text.TextRecognizer
-import java.io.FileNotFoundException
-import java.io.InputStream
+import android.support.v7.widget.GridLayoutManager
+import com.dmd.martin.clowyer.adapters.DocAdapterRecyclerView
 
 
 class CaseActivity : AppCompatActivity() {
-    val PICK_IMAGE = 1
-    var selectedImageUri: Uri? = null
-    var selectedImage: Uri? = null
 
-    var filePath: String? = null
-
-    var bmp: Bitmap? = null
-
-    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-        if (requestCode == PICK_IMAGE) {
-            if (resultCode === Activity.RESULT_OK) {
-                selectedImage = data!!.data
-                val selectedPath = selectedImage!!.path
-                if (requestCode === PICK_IMAGE) {
-
-                    if (selectedPath != null) {
-                        var imageStream: InputStream? = null
-                        try {
-                            imageStream = contentResolver.openInputStream(
-                                    selectedImage)
-                        } catch (e: FileNotFoundException) {
-                            e.printStackTrace()
-                        }
-                        // Transformamos la URI de la imagen a inputStream y este a un Bitmap
-                        bmp = BitmapFactory.decodeStream(imageStream)
-                        imageViewEx.setImageBitmap(bmp)
-                    }
-                }
-            }
-        }
-    }
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_case)
         fillListDoc()
-        selectImage()
-        recognizeText()
+        openAddDoc()
+        backFab()
     }
 
     private fun fillListDoc(){
-        listDoc.adapter = DocItemAdapter(this.baseContext!!, Constants.listDocs)
+        var gridLayout = GridLayoutManager(baseContext, 2)
+        gridLayout.orientation = GridLayoutManager.VERTICAL
+        recyclerDoc.layoutManager = gridLayout
+        var adapter = DocAdapterRecyclerView(Constants.listDocs, this, R.layout.cardview_doc)
+        recyclerDoc.adapter = adapter
     }
 
-
-    private fun selectImage(){
-        fabDocOcr.setOnClickListener{
-            val intent = Intent()
-            intent.type = "image/*"
-            intent.action = Intent.ACTION_GET_CONTENT
-            startActivityForResult(Intent.createChooser(intent, "Select Picture"), PICK_IMAGE)
-
+    private fun openAddDoc(){
+        fabAddDoc.setOnClickListener {
+            startActivity(Intent(this, AddDoc::class.java))
         }
     }
 
-    private fun recognizeText() {
-        fabDocOcrProcess.setOnClickListener{
-            if (bmp == null)
-                Toast.makeText(baseContext, "No se ha cargado ninguna imagen", Toast.LENGTH_LONG).show()
-            else{
-                bmp = (imageViewEx.drawable as BitmapDrawable).bitmap
-                var textRecognizer = TextRecognizer.Builder(this.applicationContext).build()
-                if (!textRecognizer.isOperational)
-                    Toast.makeText(baseContext, "Error procesando img", Toast.LENGTH_LONG).show()
-                else{
-                    var frame = Frame.Builder().setBitmap(bmp).build()
-                    var items = textRecognizer.detect(frame)
-                    var stringBuilder = StringBuilder()
-                    for (i in 0 until items.size()){
-                        var textBlock = items.valueAt(i)
-                        stringBuilder.append(textBlock.value)
-                        stringBuilder.append("\n")
-                    }
-                    Toast.makeText(baseContext, stringBuilder.toString(), Toast.LENGTH_LONG).show()
-                }
-            }
+    private fun backFab(){
+        fabBackCase.setOnClickListener {
+            Constants.listDocs = arrayListOf()
+            this.finish()
         }
     }
 }

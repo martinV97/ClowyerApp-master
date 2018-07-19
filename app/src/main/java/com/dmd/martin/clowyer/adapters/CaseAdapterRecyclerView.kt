@@ -1,8 +1,7 @@
 package com.dmd.martin.clowyer.adapters
 
 import android.app.Activity
-import android.content.Intent
-import android.os.Bundle
+import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
@@ -10,8 +9,8 @@ import android.view.ViewGroup
 import android.widget.ImageButton
 import android.widget.TextView
 import com.dmd.martin.clowyer.R
-import com.dmd.martin.clowyer.activities.LoadCaseActivity
 import com.dmd.martin.clowyer.entity.ItemCase
+import com.dmd.martin.clowyer.services.consumeRest.DocRest
 
 class CaseAdapterRecyclerView(var items: List<ItemCase>, var activity: Activity? = null, var resource: Int) : RecyclerView.Adapter<CaseAdapterRecyclerView.CaseViewHolder>() {
 
@@ -26,11 +25,13 @@ class CaseAdapterRecyclerView(var items: List<ItemCase>, var activity: Activity?
         holder.tVNumberCase.text = activity!!.getString(R.string.number_abbreviation) + case.getNumber()
         holder.tvCourtCase.text = case.getCourtName()
         holder.imageButtonCaseDetails.setOnClickListener {
-            var bundle = Bundle()
+            /*var bundle = Bundle()
             bundle.putSerializable("Item", case)
             var intent = Intent(activity, LoadCaseActivity::class.java)
             intent.putExtras(bundle)
-            activity!!.startActivity(intent)
+            activity!!.startActivity(intent)*/
+            DocRest(activity as AppCompatActivity?, case!!.getNumber(),
+                    activity!!.findViewById(R.id.imageViewLoadDocs),activity!!.findViewById(R.id.progressBarMain)).execute()
         }
     }
 

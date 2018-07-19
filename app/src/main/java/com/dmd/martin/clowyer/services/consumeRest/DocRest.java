@@ -4,8 +4,12 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.support.v7.app.AppCompatActivity;
+import android.view.View;
+import android.widget.ImageView;
+import android.widget.ProgressBar;
 import android.widget.Toast;
 
+import com.dmd.martin.clowyer.R;
 import com.dmd.martin.clowyer.activities.CaseActivity;
 import com.dmd.martin.clowyer.activities.MainActivity;
 import com.dmd.martin.clowyer.constants.Constants;
@@ -28,9 +32,20 @@ public class DocRest extends AsyncTask<Void, Integer, Void> {
 
     private AppCompatActivity activity;
     private String numberCase;
-    public DocRest(AppCompatActivity activity, String numberCase){
+    private ImageView loadImage;
+    private ProgressBar progressBar;
+
+    public DocRest(AppCompatActivity activity, String numberCase, ImageView loadImage, ProgressBar progressBar){
         this.activity = activity;
         this.numberCase = numberCase;
+        this.loadImage = loadImage;
+        this.progressBar = progressBar;
+    }
+
+    @Override
+    protected void onPreExecute() {
+        loadImage.setVisibility(View.VISIBLE);
+        progressBar.setVisibility(View.VISIBLE);
     }
 
     @Override
@@ -55,14 +70,17 @@ public class DocRest extends AsyncTask<Void, Integer, Void> {
             @Override
             public void onResponse(Call<List<ItemDoc>> call, Response<List<ItemDoc>> response) {
                 Constants.Companion.setListDocs(response.body());
+                loadImage.setVisibility(View.INVISIBLE);
+                progressBar.setVisibility(View.INVISIBLE);
                 Intent intent = new Intent(activity.getBaseContext(), CaseActivity.class);
                 activity.startActivity(intent);
-                activity.finish();
             }
 
             @Override
             public void onFailure(Call<List<ItemDoc>> call, Throwable t) {
-                Toast.makeText(activity.getBaseContext(), "Error cargando Documentos", Toast.LENGTH_SHORT).show();
+                loadImage.setVisibility(View.INVISIBLE);
+                progressBar.setVisibility(View.INVISIBLE);
+                Toast.makeText(activity.getBaseContext(), R.string.error_loading_docs, Toast.LENGTH_SHORT).show();
             }
         });
     }

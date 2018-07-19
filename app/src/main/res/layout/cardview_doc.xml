@@ -1,35 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:cardView="http://schemas.android.com/tools"
+    xmlns:cardView="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/docCard"
-    android:layout_width="match_parent"
+    android:layout_width="155dp"
     android:layout_height="150dp"
     android:layout_margin="5dp"
     cardView:cardBackgroundColor="@android:color/white"
     cardView:cardCornerRadius="5dp"
     cardView:cardElevation="10dp">
+
     <android.support.constraint.ConstraintLayout
         android:id="@+id/docCardLayout"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <ImageView
-            android:id="@+id/courtIcon"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="16dp"
-            cardView:layout_constraintStart_toStartOf="parent"
-            cardView:layout_constraintTop_toTopOf="parent"
-            cardView:srcCompat="@drawable/court_icon" />
-
         <TextView
             android:id="@+id/nameDocCard"
-            android:layout_width="250dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginEnd="8dp"
             android:layout_marginStart="8dp"
-            android:layout_marginTop="8dp"
+            android:layout_marginTop="32dp"
             android:text="TextView"
             android:textAlignment="center"
             android:textAppearance="@style/TextAppearance.AppCompat.Medium"
@@ -39,52 +31,44 @@
             cardView:layout_constraintTop_toTopOf="parent" />
 
         <TextView
-            android:id="@+id/typeCourtCard"
+            android:id="@+id/typeDocCard"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="32dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="16dp"
             android:text="TextView"
             android:textAppearance="@style/TextAppearance.AppCompat.Small.Inverse"
-            cardView:layout_constraintStart_toStartOf="parent"
-            cardView:layout_constraintTop_toBottomOf="@+id/courtIcon" />
-
-        <android.support.v7.widget.CardView
-            android:id="@+id/bottomCardBarDoc"
-            android:layout_width="0dp"
-            android:layout_height="40dp"
-            cardView:cardBackgroundColor="@color/colorPrimary"
-            cardView:cardCornerRadius="5dp"
-            cardView:cardElevation="3dp"
-            cardView:layout_constraintBottom_toBottomOf="parent"
             cardView:layout_constraintEnd_toEndOf="parent"
             cardView:layout_constraintStart_toStartOf="parent"
-            cardView:srcCompat="@color/colorPrimaryLight">
+            cardView:layout_constraintTop_toBottomOf="@+id/nameDocCard" />
 
-            <LinearLayout
-                android:layout_width="150dp"
-                android:layout_height="match_parent"
-                android:orientation="horizontal">
+        <ImageButton
+            android:id="@+id/imageButtonDocDownload"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_weight="1"
+            android:background="@android:color/transparent"
+            cardView:layout_constraintBottom_toBottomOf="parent"
+            cardView:layout_constraintEnd_toEndOf="@+id/typeDocCard"
+            cardView:layout_constraintStart_toStartOf="@+id/typeDocCard"
+            cardView:layout_constraintTop_toBottomOf="@+id/typeDocCard"
+            cardView:srcCompat="@drawable/download" />
 
-                <ImageButton
-                    android:id="@+id/imageButtonDocDetails"
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:background="@android:color/transparent"
-                    cardView:layout_constraintBottom_toBottomOf="parent"
-                    cardView:layout_constraintStart_toStartOf="@+id/bottomCardBarCourt"
-                    cardView:srcCompat="@drawable/eye" />
+        <ImageButton
+            android:id="@+id/imageButtonDeleteDoc"
+            android:layout_width="23dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="4dp"
+            android:layout_marginTop="4dp"
+            android:layout_weight="1"
+            android:background="@android:color/transparent"
+            cardView:layout_constraintEnd_toEndOf="parent"
+            cardView:layout_constraintTop_toTopOf="parent"
+            cardView:srcCompat="@drawable/delete" />
 
-                <ImageButton
-                    android:id="@+id/imageButtonDeleteDoc"
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:background="@android:color/transparent"
-                    cardView:srcCompat="@drawable/delete_cross_white" />
-            </LinearLayout>
-
-        </android.support.v7.widget.CardView>
     </android.support.constraint.ConstraintLayout>
 </android.support.v7.widget.CardView>

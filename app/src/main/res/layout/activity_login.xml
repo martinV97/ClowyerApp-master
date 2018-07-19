@@ -96,7 +96,7 @@
             android:layout_marginRight="5dp"
             android:layout_marginStart="5dp"
             android:layout_marginTop="5dp"
-            android:text="Todos los derechos reservados."
+            android:text="@string/rights_message"
             android:textAlignment="center" />
 
     </LinearLayout>
@@ -124,6 +124,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        android:theme="@style/progressBar"/>
 
 </android.support.constraint.ConstraintLayout>

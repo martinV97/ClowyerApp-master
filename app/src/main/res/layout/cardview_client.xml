@@ -4,8 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/clientCard"
     android:layout_width="match_parent"
-    android:layout_height="180dp"
-    android:layout_margin="5dp"
+    android:layout_height="170dp"
+    android:layout_margin="10dp"
     cardView:cardBackgroundColor="@android:color/white"
     cardView:cardCornerRadius="5dp"
     cardView:cardElevation="10dp">

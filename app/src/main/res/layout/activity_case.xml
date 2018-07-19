@@ -4,14 +4,15 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/colorPrimaryDark"
+    android:background="@color/cardview_light_background"
     tools:context=".activities.CaseActivity">
 
     <ImageView
         android:id="@+id/imageViewBackgroundBanner"
         android:layout_width="0dp"
-        android:layout_height="45dp"
+        android:layout_height="30dp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@color/colorPrimary" />
@@ -24,30 +25,32 @@
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
-        android:text="CLOWYER"
+        android:text="@string/app_name"
         android:textAlignment="center"
         android:textAllCaps="true"
-        android:textColor="@color/colorAccent"
-        android:textSize="30sp"
+        android:textColor="@android:color/white"
+        android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="@+id/imageViewBackgroundBanner"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="@+id/imageViewBackgroundBanner"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <ImageView
-        android:id="@+id/imageViewEx"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
+
+    <TextView
+        android:id="@+id/textViewTitleCase"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
+        android:text="TextView"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large.Inverse"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView"
-        app:srcCompat="@android:drawable/btn_star_big_on" />
+        app:layout_constraintTop_toBottomOf="@+id/imageViewBackgroundBanner" />
 
-    <ListView
-        android:id="@+id/listDoc"
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/recyclerDoc"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginBottom="8dp"
@@ -56,45 +59,32 @@
         android:layout_marginTop="8dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageViewEx" />
+        app:layout_constraintTop_toBottomOf="@+id/textViewTitleCase"></android.support.v7.widget.RecyclerView>
 
     <android.support.design.widget.FloatingActionButton
-        android:id="@+id/fabDoc"
+        android:id="@+id/fabAddDoc"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="end|bottom"
         android:layout_margin="16dp"
-        android:layout_marginBottom="16dp"
-        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="16dp"
         android:src="@drawable/plus"
+        app:backgroundTint="@color/colorPrimaryDark"
+        app:layout_constraintBottom_toTopOf="@+id/fabBackCase"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/fabBackCase"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:layout_marginEnd="16dp"
+        android:src="@drawable/back_arrow_white"
         app:backgroundTint="@color/colorPrimary"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
-    <android.support.design.widget.FloatingActionButton
-        android:id="@+id/fabDocOcr"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="end|bottom"
-        android:layout_margin="16dp"
-        android:layout_marginBottom="8dp"
-        android:layout_marginEnd="8dp"
-        android:src="@drawable/camera"
-        app:backgroundTint="@color/colorPrimary"
-        app:layout_constraintBottom_toTopOf="@+id/fabDoc"
-        app:layout_constraintEnd_toEndOf="parent" />
-
-    <android.support.design.widget.FloatingActionButton
-        android:id="@+id/fabDocOcrProcess"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="end|bottom"
-        android:layout_margin="16dp"
-        android:layout_marginBottom="8dp"
-        android:layout_marginEnd="8dp"
-        android:src="@drawable/ocr"
-        app:backgroundTint="@color/colorPrimary"
-        app:layout_constraintBottom_toTopOf="@+id/fabDocOcr"
-        app:layout_constraintEnd_toEndOf="parent" />
 </android.support.constraint.ConstraintLayout>
