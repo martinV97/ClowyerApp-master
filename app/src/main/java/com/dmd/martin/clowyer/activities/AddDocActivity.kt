@@ -16,7 +16,7 @@ import kotlinx.android.synthetic.main.activity_add_doc.*
 import java.io.FileNotFoundException
 import java.io.InputStream
 
-class AddDoc : AppCompatActivity() {
+class AddDocActivity : AppCompatActivity() {
     val PICK_IMAGE = 1
     var selectedImageUri: Uri? = null
     var selectedImage: Uri? = null

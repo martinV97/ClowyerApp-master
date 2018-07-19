@@ -52,7 +52,7 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".activities.LoginActivity" />
         </activity>
-        <activity android:name=".activities.AddDoc"></activity>
+        <activity android:name=".activities.AddDocActivity"></activity>
     </application>
 
 </manifest>

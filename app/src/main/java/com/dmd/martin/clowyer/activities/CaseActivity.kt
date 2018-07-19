@@ -30,7 +30,7 @@ class CaseActivity : AppCompatActivity() {
 
     private fun openAddDoc(){
         fabAddDoc.setOnClickListener {
-            startActivity(Intent(this, AddDoc::class.java))
+            startActivity(Intent(this, AddDocActivity::class.java))
         }
     }
 
