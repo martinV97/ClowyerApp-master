@@ -20,8 +20,10 @@ class LoginActivity : AppCompatActivity() {
     private fun validateLogin(){
         buttonLogin.setOnClickListener {
             if(editTextUserLogin.text.isNotEmpty() && editTextPasswordLogin.text.isNotEmpty()) {
-                LoginRest(this, editTextUserLogin.text.toString(), editTextPasswordLogin.text.toString(), imageViewLoadImage, progressBar).execute()
-
+                if(editTextPasswordLogin.text.length >= 5)
+                    LoginRest(this, editTextUserLogin.text.toString(), editTextPasswordLogin.text.toString(), imageViewLoadImage, progressBar).execute()
+                else
+                    Toast.makeText(this, getString(R.string.length_password), Toast.LENGTH_SHORT).show()
             }else
                 Toast.makeText(this, getString(R.string.complete_fields), Toast.LENGTH_SHORT).show()
         }

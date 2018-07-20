@@ -10,7 +10,7 @@ import retrofit2.http.POST;
 
 public interface LoginInterface {
     @FormUrlEncoded
-    @POST("login-lawyer")
+    @POST("/login-lawyer")
     Call<ItemLawyer> validateLogin(
             @Field("email") String email,
             @Field("password") String password);
