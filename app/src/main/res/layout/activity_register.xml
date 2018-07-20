@@ -47,60 +47,59 @@
                 android:layout_margin="5dp"
                 android:text="@string/app_name"
                 android:textAlignment="center"
-                android:textAllCaps="false"
+                android:textAllCaps="true"
                 android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-                android:textColor="@color/common_google_signin_btn_text_dark_default"
-                android:textSize="24sp" />
+                android:textColor="@android:color/white" />
 
-            <ImageView
+            <de.hdodenhof.circleimageview.CircleImageView
                 android:id="@+id/imageViewProfileRegister"
-                android:layout_width="80dp"
-                android:layout_height="80dp"
-                android:layout_margin="5dp"
-                app:srcCompat="@drawable/blank_profile" />
+                xmlns:app="http://schemas.android.com/apk/res-auto"
+                android:layout_width="96dp"
+                android:layout_height="96dp"
+                android:src="@drawable/blank_profile"/>
 
             <EditText
-                android:id="@+id/editText"
+                android:id="@+id/idRegister"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="15dp"
-                android:layout_marginRight="15dp"
-                android:layout_marginTop="15dp"
+                android:layout_marginLeft="25dp"
+                android:layout_marginRight="25dp"
+                android:layout_marginTop="10dp"
                 android:ems="10"
                 android:hint="@string/identification"
                 android:inputType="number"
                 android:textAlignment="center" />
 
             <EditText
-                android:id="@+id/editText2"
+                android:id="@+id/nameRegister"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="15dp"
-                android:layout_marginRight="15dp"
-                android:layout_marginTop="15dp"
+                android:layout_marginLeft="25dp"
+                android:layout_marginRight="25dp"
+                android:layout_marginTop="10dp"
                 android:ems="10"
                 android:hint="@string/name"
                 android:inputType="textPersonName"
                 android:textAlignment="center" />
 
             <EditText
-                android:id="@+id/editText3"
+                android:id="@+id/specialityRegister"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="15dp"
-                android:layout_marginRight="15dp"
-                android:layout_marginTop="15dp"
+                android:layout_marginLeft="25dp"
+                android:layout_marginRight="25dp"
+                android:layout_marginTop="10dp"
                 android:ems="10"
                 android:hint="@string/speciality"
                 android:inputType="textPersonName"
                 android:textAlignment="center" />
 
             <EditText
-                android:id="@+id/editText4"
+                android:id="@+id/phoneRegister"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="15dp"
-                android:layout_marginRight="15dp"
+                android:layout_marginLeft="25dp"
+                android:layout_marginRight="25dp"
                 android:layout_marginTop="10dp"
                 android:ems="10"
                 android:hint="@string/phone"
@@ -108,40 +107,29 @@
                 android:textAlignment="center" />
 
             <EditText
-                android:id="@+id/editText5"
+                android:id="@+id/mailRegister"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="15dp"
-                android:layout_marginRight="15dp"
-                android:layout_marginTop="15dp"
+                android:layout_marginLeft="25dp"
+                android:layout_marginRight="25dp"
+                android:layout_marginTop="10dp"
                 android:ems="10"
                 android:hint="@string/mail"
                 android:inputType="textEmailAddress"
                 android:textAlignment="center" />
 
             <EditText
-                android:id="@+id/editText6"
+                android:id="@+id/passwordRegister"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="15dp"
-                android:layout_marginLeft="15dp"
-                android:layout_marginRight="15dp"
-                android:layout_marginTop="15dp"
+                android:layout_marginBottom="10dp"
+                android:layout_marginLeft="25dp"
+                android:layout_marginRight="25dp"
+                android:layout_marginTop="10dp"
                 android:ems="10"
                 android:hint="@string/password"
                 android:inputType="textPassword"
                 android:textAlignment="center" />
-
-            <Button
-                android:id="@+id/buttonAddImageProfile"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="10dp"
-                android:layout_marginLeft="70dp"
-                android:layout_marginRight="70dp"
-                android:layout_marginTop="5dp"
-                android:text="@string/Image"
-                android:theme="@style/RaisedButtonDark" />
 
             <Button
                 android:id="@+id/buttonRegisterProfile"
@@ -152,6 +140,19 @@
                 android:layout_marginRight="70dp"
                 android:text="@string/register"
                 android:theme="@style/RaisedButtonDark" />
+
+            <TextView
+                android:id="@+id/textViewRightsMessageRegister"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="20dp"
+                android:layout_marginEnd="5dp"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
+                android:layout_marginStart="5dp"
+                android:layout_marginTop="5dp"
+                android:text="@string/rights_message"
+                android:textAlignment="center" />
         </LinearLayout>
     </ScrollView>
 

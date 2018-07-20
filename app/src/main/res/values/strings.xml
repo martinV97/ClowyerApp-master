@@ -24,4 +24,8 @@
     <string name="load_data_message">Cargando Datos</string>
     <string name="rights_message">Todos los derechos reservados.</string>
     <string name="error_loading_docs">Error cargando Documentos</string>
+    <string name="complete_fields">Complete todos los campos</string>
+    <string name="select_image">Seleccionar Imagen</string>
+    <string name="ocr_error">Error procesando img</string>
+    <string name="error_loaded_img">No se ha cargado ninguna imagen</string>
 </resources>

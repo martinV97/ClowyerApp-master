@@ -23,7 +23,7 @@ class LoginActivity : AppCompatActivity() {
                 LoginRest(this, editTextUserLogin.text.toString(), editTextPasswordLogin.text.toString(), imageViewLoadImage, progressBar).execute()
 
             }else
-                Toast.makeText(this, "Complete todos los campos", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, getString(R.string.complete_fields), Toast.LENGTH_SHORT).show()
         }
     }
     private fun showRegister(){

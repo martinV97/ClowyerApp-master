@@ -42,30 +42,46 @@
             android:textAppearance="@style/TextAppearance.AppCompat.Medium"
             android:textColor="@color/common_google_signin_btn_text_dark_default" />
 
-        <EditText
-            android:id="@+id/editTextUserLogin"
+        <android.support.design.widget.TextInputLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="20dp"
-            android:ems="10"
-            android:foreground="@android:color/background_light"
-            android:hint="@string/mail"
-            android:inputType="textEmailAddress"
-            android:textAlignment="center"
-            android:textColor="@android:color/background_light" />
+            android:layout_height="wrap_content">
 
-        <EditText
-            android:id="@+id/editTextPasswordLogin"
+            <android.support.design.widget.TextInputEditText
+                android:id="@+id/editTextUserLogin"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:layout_marginLeft="25dp"
+                android:layout_marginRight="25dp"
+                android:ems="10"
+                android:foreground="@android:color/background_light"
+                android:hint="@string/mail"
+                android:inputType="textEmailAddress"
+                android:textAlignment="center"
+                android:textColor="@android:color/background_light" />
+
+        </android.support.design.widget.TextInputLayout>
+
+        <android.support.design.widget.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="20dp"
-            android:layout_marginLeft="20dp"
-            android:layout_marginRight="20dp"
-            android:ems="10"
-            android:hint="@string/password"
-            android:inputType="textPassword"
-            android:textAlignment="center"
-            android:textColor="@android:color/background_light" />
+            app:passwordToggleEnabled="true"
+            android:layout_marginBottom="@dimen/login_spacing_bottom">
+
+            <android.support.design.widget.TextInputEditText
+                android:id="@+id/editTextPasswordLogin"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:layout_marginLeft="25dp"
+                android:layout_marginRight="25dp"
+                android:ems="10"
+                android:foreground="@android:color/background_light"
+                android:hint="@string/password"
+                android:inputType="textPassword"
+                android:textAlignment="center"
+                android:textColor="@android:color/background_light" />
+        </android.support.design.widget.TextInputLayout>
 
         <Button
             android:id="@+id/buttonLogin"
@@ -87,7 +103,7 @@
             android:theme="@style/RaisedButtonDark" />
 
         <TextView
-            android:id="@+id/textView3"
+            android:id="@+id/textViewRightsMessageLogin"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="20dp"

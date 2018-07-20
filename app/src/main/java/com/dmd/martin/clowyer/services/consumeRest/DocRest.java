@@ -1,8 +1,9 @@
 package com.dmd.martin.clowyer.services.consumeRest;
 
-import android.content.Context;
 import android.content.Intent;
 import android.os.AsyncTask;
+import android.os.Build;
+import android.support.annotation.RequiresApi;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.ImageView;
@@ -11,11 +12,8 @@ import android.widget.Toast;
 
 import com.dmd.martin.clowyer.R;
 import com.dmd.martin.clowyer.activities.CaseActivity;
-import com.dmd.martin.clowyer.activities.MainActivity;
 import com.dmd.martin.clowyer.constants.Constants;
-import com.dmd.martin.clowyer.entity.ItemClient;
 import com.dmd.martin.clowyer.entity.ItemDoc;
-import com.dmd.martin.clowyer.services.interfaces.ClientInterface;
 import com.dmd.martin.clowyer.services.interfaces.DocInterface;
 
 import java.util.List;
@@ -67,6 +65,7 @@ public class DocRest extends AsyncTask<Void, Integer, Void> {
         final DocInterface docInterface = builder.create(DocInterface.class);
         Call<List<ItemDoc>> call = docInterface.getListDocs("/document/" + numberCase);
         call.enqueue(new Callback<List<ItemDoc>>() {
+            @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
             @Override
             public void onResponse(Call<List<ItemDoc>> call, Response<List<ItemDoc>> response) {
                 Constants.Companion.setListDocs(response.body());
