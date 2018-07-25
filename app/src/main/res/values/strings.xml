@@ -29,4 +29,5 @@
     <string name="ocr_error">Error procesando img</string>
     <string name="error_loaded_img">No se ha cargado ninguna imagen</string>
     <string name="length_password">La contraseña debe tener al menos 5 caracteres</string>
+    <string name="client_title">Cliente</string>
 </resources>
