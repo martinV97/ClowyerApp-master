@@ -25,12 +25,7 @@ class CaseAdapterRecyclerView(var items: List<ItemCase>, var activity: Activity?
         holder.tVNumberCase.text = activity!!.getString(R.string.number_abbreviation) + case.getNumber()
         holder.tvCourtCase.text = case.getCourtName()
         holder.imageButtonCaseDetails.setOnClickListener {
-            /*var bundle = Bundle()
-            bundle.putSerializable("Item", case)
-            var intent = Intent(activity, LoadCaseActivity::class.java)
-            intent.putExtras(bundle)
-            activity!!.startActivity(intent)*/
-            DocRest(activity as AppCompatActivity?, case!!.getNumber(),
+        DocRest(activity as AppCompatActivity?, case,
                     activity!!.findViewById(R.id.imageViewLoadDocs),activity!!.findViewById(R.id.progressBarMain)).execute()
         }
     }

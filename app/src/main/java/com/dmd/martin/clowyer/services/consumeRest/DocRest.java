@@ -3,6 +3,7 @@ package com.dmd.martin.clowyer.services.consumeRest;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Build;
+import android.os.Bundle;
 import android.support.annotation.RequiresApi;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -13,6 +14,7 @@ import android.widget.Toast;
 import com.dmd.martin.clowyer.R;
 import com.dmd.martin.clowyer.activities.CaseActivity;
 import com.dmd.martin.clowyer.constants.Constants;
+import com.dmd.martin.clowyer.entity.ItemCase;
 import com.dmd.martin.clowyer.entity.ItemDoc;
 import com.dmd.martin.clowyer.services.interfaces.DocInterface;
 
@@ -29,13 +31,13 @@ import retrofit2.converter.gson.GsonConverterFactory;
 public class DocRest extends AsyncTask<Void, Integer, Void> {
 
     private AppCompatActivity activity;
-    private String numberCase;
+    private ItemCase actualCase;
     private ImageView loadImage;
     private ProgressBar progressBar;
 
-    public DocRest(AppCompatActivity activity, String numberCase, ImageView loadImage, ProgressBar progressBar){
+    public DocRest(AppCompatActivity activity, ItemCase actualCase, ImageView loadImage, ProgressBar progressBar){
         this.activity = activity;
-        this.numberCase = numberCase;
+        this.actualCase = actualCase;
         this.loadImage = loadImage;
         this.progressBar = progressBar;
     }
@@ -63,7 +65,7 @@ public class DocRest extends AsyncTask<Void, Integer, Void> {
 
     private void loadCases(Retrofit builder) {
         final DocInterface docInterface = builder.create(DocInterface.class);
-        Call<List<ItemDoc>> call = docInterface.getListDocs("/document/" + numberCase);
+        Call<List<ItemDoc>> call = docInterface.getListDocs("/document/" + actualCase.getNumber());
         call.enqueue(new Callback<List<ItemDoc>>() {
             @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
             @Override
@@ -71,7 +73,10 @@ public class DocRest extends AsyncTask<Void, Integer, Void> {
                 Constants.Companion.setListDocs(response.body());
                 loadImage.setVisibility(View.INVISIBLE);
                 progressBar.setVisibility(View.INVISIBLE);
+                Bundle bundle = new Bundle();
+                bundle.putSerializable("Item", actualCase);
                 Intent intent = new Intent(activity.getBaseContext(), CaseActivity.class);
+                intent.putExtras(bundle);
                 activity.startActivity(intent);
             }
 

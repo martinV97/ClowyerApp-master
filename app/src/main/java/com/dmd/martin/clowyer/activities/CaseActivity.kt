@@ -8,13 +8,16 @@ import com.dmd.martin.clowyer.constants.Constants
 import kotlinx.android.synthetic.main.activity_case.*
 import android.support.v7.widget.GridLayoutManager
 import com.dmd.martin.clowyer.adapters.DocAdapterRecyclerView
+import com.dmd.martin.clowyer.entity.ItemCase
 
 
 class CaseActivity : AppCompatActivity() {
-
+    private var case: ItemCase? = null
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_case)
+        case = intent.extras.getSerializable("Item") as ItemCase?
+        textViewTitleCase.text = case!!.getName()
         fillListDoc()
         openAddDoc()
         backFab()
