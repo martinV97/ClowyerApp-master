@@ -1,10 +1,13 @@
 package com.dmd.martin.clowyer.login.interactor
 
 import com.dmd.martin.clowyer.login.presenter.LoginPresenter
+import com.dmd.martin.clowyer.login.repository.LoginRepositoryImpl
 
 class LoginInteractorImpl(private var loginPresenter: LoginPresenter): LoginInteractor {
 
+    private var loginRepository = LoginRepositoryImpl(loginPresenter)
+
     override fun signIn(email: String, password: String) {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        loginRepository.signIn(email, password)
     }
 }

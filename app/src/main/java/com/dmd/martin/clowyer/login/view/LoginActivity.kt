@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.view.View
 import android.widget.Toast
 import com.dmd.martin.clowyer.R
+import com.dmd.martin.clowyer.activities.MainActivity
 import com.dmd.martin.clowyer.activities.RegisterActivity
 import com.dmd.martin.clowyer.login.presenter.LoginPresenterImpl
 import com.dmd.martin.clowyer.services.consumeRest.LoginRest
@@ -24,7 +25,7 @@ class LoginActivity : AppCompatActivity(), LoginView {
         }
     }
 
-    private fun validateLogin(){
+  /*  private fun validateLogin(){
         buttonLogin.setOnClickListener {
             if(editTextUserLogin.text.isNotEmpty() && editTextPasswordLogin.text.isNotEmpty()) {
                 if(editTextPasswordLogin.text.length >= 5)
@@ -34,7 +35,7 @@ class LoginActivity : AppCompatActivity(), LoginView {
             }else
                 Toast.makeText(this, getString(R.string.complete_fields), Toast.LENGTH_SHORT).show()
         }
-    }
+    }*/
 
     override fun enableInputs() {
         editTextUserLogin.isEnabled = true
@@ -59,16 +60,14 @@ class LoginActivity : AppCompatActivity(), LoginView {
     }
 
     override fun loginError(error: String) {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        Toast.makeText(this, getString(R.string.login_error) + error, Toast.LENGTH_SHORT).show()
     }
 
     override fun showMain() {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        startActivity(Intent(this, MainActivity::class.java))
     }
 
     override fun showRegister(){
-        buttonRegister.setOnClickListener{
-            startActivity(Intent(this, RegisterActivity::class.java))
-        }
+        startActivity(Intent(this, RegisterActivity::class.java))
     }
 }
