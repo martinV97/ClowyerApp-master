@@ -5,6 +5,7 @@ import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
 import com.dmd.martin.clowyer.R
+import com.dmd.martin.clowyer.login.view.LoginActivity
 
 class SplashActivity : AppCompatActivity() {
 
