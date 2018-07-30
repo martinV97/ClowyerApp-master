@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "834276814641",
+    "firebase_url": "https://clowyer-2f19b.firebaseio.com",
+    "project_id": "clowyer-2f19b",
+    "storage_bucket": "clowyer-2f19b.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:834276814641:android:499ae07821441dc2",
+        "android_client_info": {
+          "package_name": "com.dmd.martin.clowyer"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "834276814641-vmd921c3qnv5fmds2mo5r8emo0h3db7e.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.dmd.martin.clowyer",
+            "certificate_hash": "4fd35ee2fb8738959a48fb39cc68f928c55a137d"
+          }
+        },
+        {
+          "client_id": "834276814641-r7cr1un06fuog584850rvl4m0cnh1lle.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCkYlLmOl0ygB0C9iZs_dgbJe8O_pFSu7Q"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "834276814641-r7cr1un06fuog584850rvl4m0cnh1lle.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

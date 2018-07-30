@@ -6,6 +6,7 @@
     <uses-permission android:name="android.permission.INTERNET" />
 
     <application
+        android:name=".ClowyerApplication"
         android:allowBackup="true"
         android:icon="@drawable/clowyer_ic"
         android:label="@string/app_name"
