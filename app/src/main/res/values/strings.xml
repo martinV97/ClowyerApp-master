@@ -36,4 +36,6 @@
     <string name="opcional_phone">Telefono (Opcional)</string>
     <string name="create">Crear</string>
     <string name="toolbar_title_create_client">Crear cliente</string>
+    <string name="create_account_succesfull">Cuenta creada exitosamente.</string>
+    <string name="create_account_error">Error al crear cuenta.</string>
 </resources>
