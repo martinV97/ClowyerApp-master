@@ -7,9 +7,8 @@ import android.view.View
 import android.widget.Toast
 import com.dmd.martin.clowyer.R
 import com.dmd.martin.clowyer.activities.MainActivity
-import com.dmd.martin.clowyer.activities.RegisterActivity
 import com.dmd.martin.clowyer.login.presenter.LoginPresenterImpl
-import com.dmd.martin.clowyer.services.consumeRest.LoginRest
+import com.dmd.martin.clowyer.register.view.RegisterActivity
 import kotlinx.android.synthetic.main.activity_login.*
 
 class LoginActivity : AppCompatActivity(), LoginView {
@@ -21,7 +20,12 @@ class LoginActivity : AppCompatActivity(), LoginView {
         setContentView(R.layout.activity_login)
         buttonLogin.setOnClickListener {
             if(editTextUserLogin.text.isNotEmpty() && editTextPasswordLogin.text.isNotEmpty())
-                loginPresenter.signIn(editTextUserLogin.text.toString(), editTextPasswordLogin.text.toString())
+                if(editTextPasswordLogin.text.length >= 5)
+                    loginPresenter.signIn(editTextUserLogin.text.toString(), editTextPasswordLogin.text.toString(), this)
+                else
+                    Toast.makeText(this, getString(R.string.length_password), Toast.LENGTH_SHORT).show()
+            else
+                Toast.makeText(this, getString(R.string.complete_fields), Toast.LENGTH_SHORT).show()
         }
     }
 

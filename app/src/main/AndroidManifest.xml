@@ -51,7 +51,7 @@
             android:name=".activities.LoadActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".activities.RegisterActivity"
+            android:name=".register.view.RegisterActivity"
             android:parentActivityName=".login.view.LoginActivity"
             android:screenOrientation="portrait" >
             <meta-data

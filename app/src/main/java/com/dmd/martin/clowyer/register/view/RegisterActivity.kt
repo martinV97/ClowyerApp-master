@@ -1,4 +1,4 @@
-package com.dmd.martin.clowyer.activities
+package com.dmd.martin.clowyer.register.view
 
 import android.app.Activity
 import android.content.Intent
@@ -7,18 +7,23 @@ import android.graphics.BitmapFactory
 import android.net.Uri
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
+import android.view.View
 import android.widget.Toast
 import com.dmd.martin.clowyer.R
+import com.dmd.martin.clowyer.activities.MainActivity
 import com.dmd.martin.clowyer.constants.Constants
 import com.dmd.martin.clowyer.entity.ItemLawyer
-import com.dmd.martin.clowyer.services.consumeRest.RegisterRest
+import com.dmd.martin.clowyer.login.view.LoginActivity
+import com.dmd.martin.clowyer.register.presenter.RegisterPresenterImpl
 import com.google.firebase.auth.FirebaseAuth
 import kotlinx.android.synthetic.main.activity_register.*
 import java.io.FileNotFoundException
 import java.io.InputStream
 
-class RegisterActivity : AppCompatActivity() {
+class RegisterActivity : AppCompatActivity(), RegisterView {
+
+    private var registerPresenter = RegisterPresenterImpl(this)
+
     private var dataImg: Intent? = null
     private var selectedImage: Uri? = null
     private var bmp: Bitmap? = null
@@ -49,9 +54,9 @@ class RegisterActivity : AppCompatActivity() {
         authStateListener = FirebaseAuth.AuthStateListener {
             var fireBaseUser = fireBaseAuth!!.currentUser
             if (fireBaseUser != null)
-                Log.w("PPP", "Usuario logeado")
+                Toast.makeText(this, "Usuario logeado" + fireBaseUser.email, Toast.LENGTH_SHORT).show()
             else
-                Log.w("PPP", "Usuario no logeado")
+                Toast.makeText(this, "Usuario no logeado", Toast.LENGTH_SHORT).show()
         }
     }
 
@@ -94,18 +99,68 @@ class RegisterActivity : AppCompatActivity() {
 
     private fun registerLawyer(){
         buttonRegisterProfile.setOnClickListener {
-            createAccount()
+            if(mailRegister.text.isNotEmpty() && passwordRegister.text.isNotEmpty())
+                if(passwordRegister.text.length >= 5)
+                    registerPresenter.register(mailRegister.text.toString(), passwordRegister.text.toString(), this)
+                else
+                    Toast.makeText(this, getString(R.string.length_password), Toast.LENGTH_SHORT).show()
+            else
+                Toast.makeText(this, getString(R.string.complete_fields), Toast.LENGTH_SHORT).show()
+            //createAccount()
             //RegisterRest(this, createItemLawyer(), dataImg, imageViewLoadImageRegister, progressBarRegister).execute();
         }
     }
 
     private fun createAccount() {
+
         fireBaseAuth!!.createUserWithEmailAndPassword(mailRegister.text.toString(), passwordRegister.text.toString()).addOnCompleteListener {
                 if (it.isSuccessful)
                     Toast.makeText(this, getString(R.string.create_account_succesfull), Toast.LENGTH_SHORT).show()
                 else
                     Toast.makeText(this, getString(R.string.create_account_error), Toast.LENGTH_SHORT).show()
         }
+    }
+
+    override fun enableInputs() {
+        idRegister.isEnabled = true
+        nameRegister.isEnabled = true
+        specialityRegister.isEnabled = true
+        phoneRegister.isEnabled = true
+        mailRegister.isEnabled = true
+        passwordRegister.isEnabled = true
+        buttonRegisterProfile.isEnabled = true
+    }
+
+    override fun disableInputs() {
+        idRegister.isEnabled = false
+        nameRegister.isEnabled = false
+        specialityRegister.isEnabled = false
+        phoneRegister.isEnabled = false
+        mailRegister.isEnabled = false
+        passwordRegister.isEnabled = false
+        buttonRegisterProfile.isEnabled = false
+    }
+
+    override fun showProgressBar() {
+        progressBarRegister.visibility = View.VISIBLE
+        imageViewLoadImageRegister.visibility = View.VISIBLE
+    }
+
+    override fun hideProgressBar() {
+        progressBarRegister.visibility = View.INVISIBLE
+        imageViewLoadImageRegister.visibility = View.INVISIBLE
+    }
+
+    override fun registerError(error: String) {
+        Toast.makeText(this, getString(R.string.register_error) + error, Toast.LENGTH_SHORT).show()
+    }
+
+    override fun showMain() {
+        startActivity(Intent(this, MainActivity::class.java))
+    }
+
+    override fun showLogin() {
+        startActivity(Intent(this, LoginActivity::class.java))
     }
 
     private fun createItemLawyer(): ItemLawyer{
