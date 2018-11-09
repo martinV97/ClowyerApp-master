@@ -12,7 +12,6 @@ import android.widget.Toast
 import com.dmd.martin.clowyer.R
 import com.dmd.martin.clowyer.activities.MainActivity
 import com.dmd.martin.clowyer.constants.Constants
-import com.dmd.martin.clowyer.entity.ItemLawyer
 import com.dmd.martin.clowyer.login.view.LoginActivity
 import com.dmd.martin.clowyer.register.presenter.RegisterPresenterImpl
 import com.google.firebase.auth.FirebaseAuth
@@ -45,9 +44,9 @@ class RegisterActivity : AppCompatActivity(), RegisterView {
         setContentView(R.layout.activity_register)
         showToolbar(resources.getString(R.string.toolbar_title_register), true)
         selectImage()
-        registerLawyer()
+        registerOption()
         fireBaseAuth = FirebaseAuth.getInstance()
-        startAuthListener()
+        //startAuthListener()
     }
 
     private fun startAuthListener() {
@@ -97,7 +96,7 @@ class RegisterActivity : AppCompatActivity(), RegisterView {
         }
     }
 
-    private fun registerLawyer(){
+    private fun registerOption(){
         buttonRegisterProfile.setOnClickListener {
             if(mailRegister.text.isNotEmpty() && passwordRegister.text.isNotEmpty())
                 if(passwordRegister.text.length >= 5)
@@ -111,7 +110,7 @@ class RegisterActivity : AppCompatActivity(), RegisterView {
         }
     }
 
-    private fun createAccount() {
+  /*  private fun createAccount() {
 
         fireBaseAuth!!.createUserWithEmailAndPassword(mailRegister.text.toString(), passwordRegister.text.toString()).addOnCompleteListener {
                 if (it.isSuccessful)
@@ -119,7 +118,18 @@ class RegisterActivity : AppCompatActivity(), RegisterView {
                 else
                     Toast.makeText(this, getString(R.string.create_account_error), Toast.LENGTH_SHORT).show()
         }
-    }
+    }*/
+
+    /*  private fun createItemLawyer(): ItemLawyer{
+        var lawyer = ItemLawyer()
+        lawyer.setIdentification(idRegister.text.toString())
+        lawyer.setName(nameRegister.text.toString())
+        lawyer.setSpeciality(specialityRegister.text.toString())
+        lawyer.setPhone(phoneRegister.text.toString())
+        lawyer.setEmail(mailRegister.text.toString())
+        lawyer.setPassword(passwordRegister.text.toString())
+        return lawyer
+    }*/
 
     override fun enableInputs() {
         idRegister.isEnabled = true
@@ -152,7 +162,7 @@ class RegisterActivity : AppCompatActivity(), RegisterView {
     }
 
     override fun registerError(error: String) {
-        Toast.makeText(this, getString(R.string.register_error) + error, Toast.LENGTH_SHORT).show()
+        Toast.makeText(this, getString(R.string.register_error) + ": " + error, Toast.LENGTH_SHORT).show()
     }
 
     override fun showMain() {
@@ -163,14 +173,4 @@ class RegisterActivity : AppCompatActivity(), RegisterView {
         startActivity(Intent(this, LoginActivity::class.java))
     }
 
-    private fun createItemLawyer(): ItemLawyer{
-        var lawyer = ItemLawyer()
-        lawyer.setIdentification(idRegister.text.toString())
-        lawyer.setName(nameRegister.text.toString())
-        lawyer.setSpeciality(specialityRegister.text.toString())
-        lawyer.setPhone(phoneRegister.text.toString())
-        lawyer.setEmail(mailRegister.text.toString())
-        lawyer.setPassword(passwordRegister.text.toString())
-        return lawyer
-    }
 }

@@ -18,6 +18,11 @@ class LoginActivity : AppCompatActivity(), LoginView {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
+        loginOption()
+        registerOption()
+    }
+
+    private fun loginOption(){
         buttonLogin.setOnClickListener {
             if(editTextUserLogin.text.isNotEmpty() && editTextPasswordLogin.text.isNotEmpty())
                 if(editTextPasswordLogin.text.length >= 5)
@@ -29,17 +34,11 @@ class LoginActivity : AppCompatActivity(), LoginView {
         }
     }
 
-  /*  private fun validateLogin(){
-        buttonLogin.setOnClickListener {
-            if(editTextUserLogin.text.isNotEmpty() && editTextPasswordLogin.text.isNotEmpty()) {
-                if(editTextPasswordLogin.text.length >= 5)
-                    LoginRest(this, editTextUserLogin.text.toString(), editTextPasswordLogin.text.toString(), imageViewLoadImage, progressBar).execute()
-                else
-                    Toast.makeText(this, getString(R.string.length_password), Toast.LENGTH_SHORT).show()
-            }else
-                Toast.makeText(this, getString(R.string.complete_fields), Toast.LENGTH_SHORT).show()
+    private fun registerOption(){
+        buttonRegister.setOnClickListener {
+            loginPresenter.showRegister()
         }
-    }*/
+    }
 
     override fun enableInputs() {
         editTextUserLogin.isEnabled = true
@@ -64,7 +63,7 @@ class LoginActivity : AppCompatActivity(), LoginView {
     }
 
     override fun loginError(error: String) {
-        Toast.makeText(this, getString(R.string.login_error) + error, Toast.LENGTH_SHORT).show()
+        Toast.makeText(this, getString(R.string.login_error) + ": " + error, Toast.LENGTH_SHORT).show()
     }
 
     override fun showMain() {

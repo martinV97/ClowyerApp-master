@@ -25,4 +25,8 @@ class LoginPresenterImpl(private var loginView: LoginView) : LoginPresenter {
         loginView.hideProgressBar()
         loginView.loginError(error)
     }
+
+    override fun showRegister() {
+        loginView.showRegister()
+    }
 }
