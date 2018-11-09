@@ -9,10 +9,13 @@ import com.dmd.martin.clowyer.R
 import com.dmd.martin.clowyer.activities.MainActivity
 import com.dmd.martin.clowyer.login.presenter.LoginPresenterImpl
 import com.dmd.martin.clowyer.register.view.RegisterActivity
+import com.google.firebase.auth.FirebaseAuth
 import kotlinx.android.synthetic.main.activity_login.*
 
 class LoginActivity : AppCompatActivity(), LoginView {
 
+    private var fireBaseAuth: FirebaseAuth? = null
+    private var authStateListener: FirebaseAuth.AuthStateListener? = null
     private var loginPresenter = LoginPresenterImpl(this)
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -20,6 +23,16 @@ class LoginActivity : AppCompatActivity(), LoginView {
         setContentView(R.layout.activity_login)
         loginOption()
         registerOption()
+    }
+
+    override fun onStart() {
+        super.onStart()
+        authStateListener?.let { fireBaseAuth!!.addAuthStateListener(it) }
+    }
+
+    override fun onStop() {
+        super.onStop()
+        authStateListener?.let { fireBaseAuth!!.removeAuthStateListener(it) }
     }
 
     private fun loginOption(){

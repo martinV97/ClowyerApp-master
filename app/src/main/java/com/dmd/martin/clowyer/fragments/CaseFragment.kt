@@ -7,11 +7,10 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.LinearLayout
-import android.widget.Toast
 
 
 import com.dmd.martin.clowyer.R
-import com.dmd.martin.clowyer.adapters.CaseAdapterRecyclerView
+import com.dmd.martin.clowyer.cardviews.cases.view.CaseAdapterRecyclerView
 import com.dmd.martin.clowyer.constants.Constants
 import kotlinx.android.synthetic.main.fragment_case.*
 

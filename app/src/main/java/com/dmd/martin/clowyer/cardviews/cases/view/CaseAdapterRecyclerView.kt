@@ -1,4 +1,4 @@
-package com.dmd.martin.clowyer.adapters
+package com.dmd.martin.clowyer.cardviews.cases.view
 
 import android.app.Activity
 import android.support.v7.app.AppCompatActivity

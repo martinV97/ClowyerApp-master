@@ -45,18 +45,6 @@ class RegisterActivity : AppCompatActivity(), RegisterView {
         showToolbar(resources.getString(R.string.toolbar_title_register), true)
         selectImage()
         registerOption()
-        fireBaseAuth = FirebaseAuth.getInstance()
-        //startAuthListener()
-    }
-
-    private fun startAuthListener() {
-        authStateListener = FirebaseAuth.AuthStateListener {
-            var fireBaseUser = fireBaseAuth!!.currentUser
-            if (fireBaseUser != null)
-                Toast.makeText(this, "Usuario logeado" + fireBaseUser.email, Toast.LENGTH_SHORT).show()
-            else
-                Toast.makeText(this, "Usuario no logeado", Toast.LENGTH_SHORT).show()
-        }
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
@@ -105,20 +93,9 @@ class RegisterActivity : AppCompatActivity(), RegisterView {
                     Toast.makeText(this, getString(R.string.length_password), Toast.LENGTH_SHORT).show()
             else
                 Toast.makeText(this, getString(R.string.complete_fields), Toast.LENGTH_SHORT).show()
-            //createAccount()
             //RegisterRest(this, createItemLawyer(), dataImg, imageViewLoadImageRegister, progressBarRegister).execute();
         }
     }
-
-  /*  private fun createAccount() {
-
-        fireBaseAuth!!.createUserWithEmailAndPassword(mailRegister.text.toString(), passwordRegister.text.toString()).addOnCompleteListener {
-                if (it.isSuccessful)
-                    Toast.makeText(this, getString(R.string.create_account_succesfull), Toast.LENGTH_SHORT).show()
-                else
-                    Toast.makeText(this, getString(R.string.create_account_error), Toast.LENGTH_SHORT).show()
-        }
-    }*/
 
     /*  private fun createItemLawyer(): ItemLawyer{
         var lawyer = ItemLawyer()
