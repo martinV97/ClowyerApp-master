@@ -11,7 +11,7 @@ import android.widget.TabHost
 import com.dmd.martin.clowyer.R
 import com.dmd.martin.clowyer.adapters.FragmentAdapter
 import com.dmd.martin.clowyer.fragments.AccountFragment
-import com.dmd.martin.clowyer.fragments.CaseFragment
+import com.dmd.martin.clowyer.cardviews.cases.view.CaseFragment
 import com.dmd.martin.clowyer.fragments.ClientFragment
 import com.dmd.martin.clowyer.fragments.CourtFragment
 import kotlinx.android.synthetic.main.activity_main.*

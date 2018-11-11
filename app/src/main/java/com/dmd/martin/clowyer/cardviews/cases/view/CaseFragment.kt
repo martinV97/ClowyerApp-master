@@ -1,4 +1,4 @@
-package com.dmd.martin.clowyer.fragments
+package com.dmd.martin.clowyer.cardviews.cases.view
 
 import android.os.Bundle
 import android.support.v4.app.Fragment
