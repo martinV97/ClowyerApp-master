@@ -15,9 +15,22 @@ class LoginPresenterImpl(private var loginView: LoginView) : LoginPresenter {
         interactor.signIn(email, password, activity)
     }
 
+    override fun loadDataAccount(id: String) {
+        loginView.showLoadingText()
+        interactor.loadDataAccount(id)
+    }
+
     override fun loginSuccess() {
         loginView.hideProgressBar()
+        loginView.hideLoadingText()
         loginView.showMain()
+    }
+
+    override fun loadingDataError(error: String) {
+        loginView.enableInputs()
+        loginView.hideProgressBar()
+        loginView.hideLoadingText()
+        loginView.loginError(error)
     }
 
     override fun loginError(error: String) {

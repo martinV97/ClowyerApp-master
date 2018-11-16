@@ -1,9 +1,12 @@
 package com.dmd.martin.clowyer.cardviews.cases.view
 
+import com.dmd.martin.clowyer.entity.ItemCase
+
 interface CaseView {
     fun showProgressBar()
     fun hideProgressBar()
-    fun searchError(error: String)
-    fun deleteError(error: String)
-    fun showCase()
+    fun showCase(case: ItemCase)
+    fun showError(error: String)
+    fun showSearchError(error: String)
+    fun showDeleteError(error: String)
 }

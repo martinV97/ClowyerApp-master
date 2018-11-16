@@ -11,4 +11,10 @@ class LoginInteractorImpl(private var loginPresenter: LoginPresenter): LoginInte
     override fun signIn(email: String, password: String, activity: Activity) {
         loginRepository.signIn(email, password, activity)
     }
+
+    override fun loadDataAccount(id: String) {
+        loginRepository.loadCases(id)
+        loginRepository.loadClients(id)
+        loginRepository.loadCourts()
+    }
 }

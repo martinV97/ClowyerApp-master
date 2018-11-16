@@ -8,13 +8,23 @@ class LoginRepositoryImpl(private var loginPresenter: LoginPresenter): LoginRepo
 
     private var fireBaseAuth: FirebaseAuth? = null
 
-    override fun signIn(email: String, password: String, activity: Activity) {
+    override fun signIn(email: String, password: String, activity: Activity){
         fireBaseAuth = FirebaseAuth.getInstance()
         fireBaseAuth!!.signInWithEmailAndPassword(email, password).addOnCompleteListener {
             if(it.isSuccessful)
-                loginPresenter!!.loginSuccess()
+                loginPresenter.loadDataAccount(fireBaseAuth!!.uid!!)
             else
                 loginPresenter!!.loginError(it.exception!!.toString())
         }
+    }
+
+    override fun loadCases(idLawyer: String) {
+    }
+
+    override fun loadClients(idLawyer: String) {
+    }
+
+    override fun loadCourts() {
+        loginPresenter.loginSuccess()
     }
 }

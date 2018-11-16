@@ -75,6 +75,14 @@ class LoginActivity : AppCompatActivity(), LoginView {
         progressBar.visibility = View.INVISIBLE
     }
 
+    override fun showLoadingText() {
+        textViewLoadingLogin.visibility = View.VISIBLE
+    }
+
+    override fun hideLoadingText() {
+        textViewLoadingLogin.visibility = View.INVISIBLE
+    }
+
     override fun loginError(error: String) {
         Toast.makeText(this, getString(R.string.login_error) + ": " + error, Toast.LENGTH_SHORT).show()
     }

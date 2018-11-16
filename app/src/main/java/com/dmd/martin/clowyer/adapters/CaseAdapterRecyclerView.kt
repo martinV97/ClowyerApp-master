@@ -9,10 +9,13 @@ import android.view.ViewGroup
 import android.widget.ImageButton
 import android.widget.TextView
 import com.dmd.martin.clowyer.R
+import com.dmd.martin.clowyer.cases.presenter.CasePresenterImpl
 import com.dmd.martin.clowyer.entity.ItemCase
 import com.dmd.martin.clowyer.services.consumeRest.DocRest
 
-class CaseAdapterRecyclerView(var items: List<ItemCase>, var activity: Activity? = null, var resource: Int) : RecyclerView.Adapter<CaseAdapterRecyclerView.CaseViewHolder>() {
+class CaseAdapterRecyclerView(var items: List<ItemCase>, var activity: Activity? = null,
+                              var resource: Int, var casePresenterImpl: CasePresenterImpl) :
+        RecyclerView.Adapter<CaseAdapterRecyclerView.CaseViewHolder>(){
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CaseViewHolder {
         val view = LayoutInflater.from(parent.context).inflate(resource, parent, false)
