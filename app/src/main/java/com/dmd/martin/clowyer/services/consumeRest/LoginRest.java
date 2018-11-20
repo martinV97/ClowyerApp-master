@@ -10,7 +10,6 @@ import android.widget.Toast;
 
 import com.dmd.martin.clowyer.R;
 import com.dmd.martin.clowyer.activities.LoadActivity;
-import com.dmd.martin.clowyer.activities.MainActivity;
 import com.dmd.martin.clowyer.constants.Constants;
 import com.dmd.martin.clowyer.entity.ItemLawyer;
 import com.dmd.martin.clowyer.services.interfaces.LoginInterface;

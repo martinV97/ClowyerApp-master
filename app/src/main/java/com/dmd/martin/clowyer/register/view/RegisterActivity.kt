@@ -10,7 +10,7 @@ import android.os.Bundle
 import android.view.View
 import android.widget.Toast
 import com.dmd.martin.clowyer.R
-import com.dmd.martin.clowyer.activities.MainActivity
+import com.dmd.martin.clowyer.navigation.view.MainActivity
 import com.dmd.martin.clowyer.constants.Constants
 import com.dmd.martin.clowyer.login.view.LoginActivity
 import com.dmd.martin.clowyer.register.presenter.RegisterPresenterImpl

@@ -1,4 +1,4 @@
-package com.dmd.martin.clowyer.activities
+package com.dmd.martin.clowyer.navigation.view
 
 import android.content.Context
 import android.os.Build
@@ -12,12 +12,14 @@ import com.dmd.martin.clowyer.R
 import com.dmd.martin.clowyer.adapters.FragmentAdapter
 import com.dmd.martin.clowyer.fragments.AccountFragment
 import com.dmd.martin.clowyer.cardviews.cases.view.CaseFragment
-import com.dmd.martin.clowyer.fragments.ClientFragment
-import com.dmd.martin.clowyer.fragments.CourtFragment
+import com.dmd.martin.clowyer.navigation.presenter.NavigationPresenterImpl
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() , ViewPager.OnPageChangeListener, TabHost.OnTabChangeListener{
     private val listF: MutableList<android.support.v4.app.Fragment> = mutableListOf()
+    private var caseFragment = CaseFragment()
+    private var clientFragment = ClientFragment()
+    private var courtFragment = CourtFragment()
 
     @RequiresApi(Build.VERSION_CODES.LOLLIPOP)
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -29,9 +31,14 @@ class MainActivity : AppCompatActivity() , ViewPager.OnPageChangeListener, TabHo
     }
 
     private fun initVIewPager(){
-        listF.add(CaseFragment())
-        listF.add(ClientFragment())
-        listF.add(CourtFragment())
+        val navigationPresenter = NavigationPresenterImpl(caseFragment, clientFragment, courtFragment)
+        caseFragment.setPresenter(navigationPresenter)
+        clientFragment.setPresenter(navigationPresenter)
+        courtFragment.setPresenter(navigationPresenter)
+
+        listF.add(caseFragment)
+        listF.add(clientFragment)
+        listF.add(courtFragment)
         listF.add(AccountFragment())
         val fragmentAdapter = FragmentAdapter(this.supportFragmentManager, listF)
         viewPagerMain.adapter = fragmentAdapter

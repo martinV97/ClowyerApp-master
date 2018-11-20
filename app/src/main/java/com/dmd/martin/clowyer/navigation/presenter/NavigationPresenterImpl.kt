@@ -1,11 +1,15 @@
-package com.dmd.martin.clowyer.cases.presenter
+package com.dmd.martin.clowyer.navigation.presenter
 
-import com.dmd.martin.clowyer.cardviews.cases.view.CaseView
-import com.dmd.martin.clowyer.cases.interactor.CaseInteractorImpl
+import com.dmd.martin.clowyer.cardviews.cases.view.CaseNavigationView
+import com.dmd.martin.clowyer.navigation.interactor.NavigationInteractorImpl
+import com.dmd.martin.clowyer.navigation.view.ClientNavigationView
+import com.dmd.martin.clowyer.navigation.view.CourtNavigationView
 
-class CasePresenterImpl(var caseView: CaseView): CasePresenter {
+class NavigationPresenterImpl(var caseNavigationView: CaseNavigationView,
+                              var clientNavigationView: ClientNavigationView,
+                              var courtNavigationView: CourtNavigationView): NavigationPresenter {
 
-    private var interactor = CaseInteractorImpl(this)
+    private var interactor = NavigationInteractorImpl(this)
 
     override fun searchCase() {
         TODO("not implemented") //To change body of created functions use File | Settings | File Templates.

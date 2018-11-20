@@ -1,4 +1,4 @@
-package com.dmd.martin.clowyer.fragments
+package com.dmd.martin.clowyer.navigation.view
 
 import android.os.Bundle
 import android.support.v4.app.Fragment
@@ -11,9 +11,13 @@ import android.widget.LinearLayout
 import com.dmd.martin.clowyer.R
 import com.dmd.martin.clowyer.adapters.CourtAdapterRecyclerView
 import com.dmd.martin.clowyer.constants.Constants
+import com.dmd.martin.clowyer.navigation.presenter.NavigationPresenter
+import com.dmd.martin.clowyer.navigation.presenter.NavigationPresenterImpl
 import kotlinx.android.synthetic.main.fragment_court.*
 
-class CourtFragment : Fragment() {
+class CourtFragment : Fragment(), CourtNavigationView {
+
+    private var navigationPresenterImpl: NavigationPresenter? = null
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
@@ -30,6 +34,10 @@ class CourtFragment : Fragment() {
         recyclerCourt.layoutManager = linearLayout
         var adapter = CourtAdapterRecyclerView(Constants.listCourts, activity, R.layout.cardview_court)
         recyclerCourt.adapter = adapter
+    }
+
+    fun setPresenter(navigationPresenter: NavigationPresenterImpl){
+        this.navigationPresenterImpl = navigationPresenter
     }
 
     override fun onResume() {

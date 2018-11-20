@@ -1,6 +1,6 @@
-package com.dmd.martin.clowyer.cases.presenter
+package com.dmd.martin.clowyer.navigation.presenter
 
-interface CasePresenter {
+interface NavigationPresenter {
     fun searchCase()
     fun deleteCase()
     fun updateCases()

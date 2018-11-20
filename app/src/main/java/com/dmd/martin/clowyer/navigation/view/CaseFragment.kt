@@ -10,15 +10,15 @@ import android.widget.LinearLayout
 
 
 import com.dmd.martin.clowyer.R
-import com.dmd.martin.clowyer.cases.presenter.CasePresenter
-import com.dmd.martin.clowyer.cases.presenter.CasePresenterImpl
+import com.dmd.martin.clowyer.navigation.presenter.NavigationPresenterImpl
 import com.dmd.martin.clowyer.constants.Constants
 import com.dmd.martin.clowyer.entity.ItemCase
+import com.dmd.martin.clowyer.navigation.presenter.NavigationPresenter
 import kotlinx.android.synthetic.main.fragment_case.*
 
-class CaseFragment : Fragment(), CaseView {
+class CaseFragment : Fragment(), CaseNavigationView {
 
-    private var casePresenter = CasePresenterImpl(this)
+    private var navigationPresenterImpl: NavigationPresenter? = null
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
@@ -34,7 +34,7 @@ class CaseFragment : Fragment(), CaseView {
         var linearLayout = LinearLayoutManager(context)
         linearLayout.orientation = LinearLayout.VERTICAL
         recyclerCases.layoutManager = linearLayout
-        var adapter = CaseAdapterRecyclerView(Constants.listCases, activity, R.layout.cardview_case, casePresenter)
+        var adapter = CaseAdapterRecyclerView(Constants.listCases, activity, R.layout.cardview_case, navigationPresenterImpl!!)
         recyclerCases.adapter = adapter
     }
 
@@ -65,5 +65,9 @@ class CaseFragment : Fragment(), CaseView {
 
     override fun showDeleteError(error: String) {
         TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+    }
+
+    fun setPresenter(navigationPresenter: NavigationPresenterImpl){
+        this.navigationPresenterImpl = navigationPresenter
     }
 }

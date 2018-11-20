@@ -1,12 +1,11 @@
 package com.dmd.martin.clowyer.services.consumeRest;
 
-import android.content.Context;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.Toast;
 
-import com.dmd.martin.clowyer.activities.MainActivity;
+import com.dmd.martin.clowyer.navigation.view.MainActivity;
 import com.dmd.martin.clowyer.constants.Constants;
 import com.dmd.martin.clowyer.entity.ItemCase;
 import com.dmd.martin.clowyer.services.interfaces.CaseInterface;

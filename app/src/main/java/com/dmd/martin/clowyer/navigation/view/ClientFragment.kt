@@ -1,4 +1,4 @@
-package com.dmd.martin.clowyer.fragments
+package com.dmd.martin.clowyer.navigation.view
 
 import android.content.Intent
 import android.os.Bundle
@@ -10,13 +10,16 @@ import android.view.ViewGroup
 import android.widget.LinearLayout
 
 import com.dmd.martin.clowyer.R
-import com.dmd.martin.clowyer.activities.AddDocActivity
 import com.dmd.martin.clowyer.activities.ClientActivity
 import com.dmd.martin.clowyer.adapters.ClientAdapterRecyclerView
 import com.dmd.martin.clowyer.constants.Constants
+import com.dmd.martin.clowyer.navigation.presenter.NavigationPresenter
+import com.dmd.martin.clowyer.navigation.presenter.NavigationPresenterImpl
 import kotlinx.android.synthetic.main.fragment_client.*
 
-class ClientFragment : Fragment() {
+class ClientFragment : Fragment(), ClientNavigationView {
+
+    private var navigationPresenterImpl: NavigationPresenter? = null
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
@@ -40,6 +43,10 @@ class ClientFragment : Fragment() {
         fabClient.setOnClickListener {
             startActivity(Intent(this.context, ClientActivity::class.java))
         }
+    }
+
+    fun setPresenter(navigationPresenter: NavigationPresenterImpl){
+        this.navigationPresenterImpl = navigationPresenter
     }
 
     override fun onResume() {

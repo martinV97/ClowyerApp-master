@@ -6,7 +6,7 @@ import android.os.Bundle
 import android.view.View
 import android.widget.Toast
 import com.dmd.martin.clowyer.R
-import com.dmd.martin.clowyer.activities.MainActivity
+import com.dmd.martin.clowyer.navigation.view.MainActivity
 import com.dmd.martin.clowyer.login.presenter.LoginPresenterImpl
 import com.dmd.martin.clowyer.register.view.RegisterActivity
 import com.google.firebase.auth.FirebaseAuth
