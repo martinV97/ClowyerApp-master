@@ -1,13 +1,9 @@
 package com.dmd.martin.clowyer.navigation.presenter
 
-import com.dmd.martin.clowyer.cardviews.cases.view.CaseNavigationView
 import com.dmd.martin.clowyer.navigation.interactor.NavigationInteractorImpl
-import com.dmd.martin.clowyer.navigation.view.ClientNavigationView
-import com.dmd.martin.clowyer.navigation.view.CourtNavigationView
+import com.dmd.martin.clowyer.navigation.view.NavigationView
 
-class NavigationPresenterImpl(var caseNavigationView: CaseNavigationView,
-                              var clientNavigationView: ClientNavigationView,
-                              var courtNavigationView: CourtNavigationView): NavigationPresenter {
+class NavigationPresenterImpl(var navigationView: NavigationView): NavigationPresenter {
 
     private var interactor = NavigationInteractorImpl(this)
 

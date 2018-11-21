@@ -1,6 +1,7 @@
 package com.dmd.martin.clowyer.navigation.view
 
 import android.content.Context
+import android.content.Intent
 import android.os.Build
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
@@ -9,13 +10,17 @@ import android.support.v4.view.ViewPager
 import android.view.View
 import android.widget.TabHost
 import com.dmd.martin.clowyer.R
+import com.dmd.martin.clowyer.activities.CaseActivity
 import com.dmd.martin.clowyer.adapters.FragmentAdapter
 import com.dmd.martin.clowyer.fragments.AccountFragment
 import com.dmd.martin.clowyer.cardviews.cases.view.CaseFragment
+import com.dmd.martin.clowyer.entity.ItemCase
+import com.dmd.martin.clowyer.entity.ItemClient
+import com.dmd.martin.clowyer.entity.ItemCourt
 import com.dmd.martin.clowyer.navigation.presenter.NavigationPresenterImpl
 import kotlinx.android.synthetic.main.activity_main.*
 
-class MainActivity : AppCompatActivity() , ViewPager.OnPageChangeListener, TabHost.OnTabChangeListener{
+class MainActivity : AppCompatActivity() , ViewPager.OnPageChangeListener, TabHost.OnTabChangeListener, NavigationView{
     private val listF: MutableList<android.support.v4.app.Fragment> = mutableListOf()
     private var caseFragment = CaseFragment()
     private var clientFragment = ClientFragment()
@@ -31,14 +36,13 @@ class MainActivity : AppCompatActivity() , ViewPager.OnPageChangeListener, TabHo
     }
 
     private fun initVIewPager(){
-        val navigationPresenter = NavigationPresenterImpl(caseFragment, clientFragment, courtFragment)
+        val navigationPresenter = NavigationPresenterImpl(this)
         caseFragment.setPresenter(navigationPresenter)
         clientFragment.setPresenter(navigationPresenter)
         courtFragment.setPresenter(navigationPresenter)
-
-        listF.add(caseFragment)
-        listF.add(clientFragment)
-        listF.add(courtFragment)
+        listF.add(caseFragment!!)
+        listF.add(clientFragment!!)
+        listF.add(courtFragment!!)
         listF.add(AccountFragment())
         val fragmentAdapter = FragmentAdapter(this.supportFragmentManager, listF)
         viewPagerMain.adapter = fragmentAdapter
@@ -84,5 +88,51 @@ class MainActivity : AppCompatActivity() , ViewPager.OnPageChangeListener, TabHo
             fakeView.minimumWidth = 0
             return  fakeView
         }
+    }
+
+    override fun showProgressBar() {
+        imageViewLoadMain.visibility = View.VISIBLE
+        progressBarMain.visibility = View.VISIBLE
+    }
+
+    override fun hideProgressBar() {
+        imageViewLoadMain.visibility = View.INVISIBLE
+        progressBarMain.visibility = View.INVISIBLE
+    }
+
+    override fun showCase(case: ItemCase) {
+        val bundle = Bundle()
+        bundle.putSerializable("Item", case)
+        val intent = Intent(this, CaseActivity::class.java)
+        intent.putExtras(bundle)
+        startActivity(intent)
+    }
+
+    override fun showClient(client: ItemClient) {
+        val bundle = Bundle()
+        bundle.putSerializable("Item", client)
+        val intent = Intent(this, CaseActivity::class.java)
+        intent.putExtras(bundle)
+        startActivity(intent)
+    }
+
+    override fun showCourt(court: ItemCourt) {
+        val bundle = Bundle()
+        bundle.putSerializable("Item", court)
+        val intent = Intent(this, CaseActivity::class.java)
+        intent.putExtras(bundle)
+        startActivity(intent)
+    }
+
+    override fun showError(error: String) {
+        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+    }
+
+    override fun showSearchError(error: String) {
+        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+    }
+
+    override fun showDeleteError(error: String) {
+        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
     }
 }

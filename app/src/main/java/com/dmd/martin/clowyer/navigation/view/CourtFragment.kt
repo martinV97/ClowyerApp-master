@@ -15,9 +15,9 @@ import com.dmd.martin.clowyer.navigation.presenter.NavigationPresenter
 import com.dmd.martin.clowyer.navigation.presenter.NavigationPresenterImpl
 import kotlinx.android.synthetic.main.fragment_court.*
 
-class CourtFragment : Fragment(), CourtNavigationView {
+class CourtFragment: Fragment(){
 
-    private var navigationPresenterImpl: NavigationPresenter? = null
+    private var navigationPresenter: NavigationPresenterImpl? = null
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
@@ -36,14 +36,12 @@ class CourtFragment : Fragment(), CourtNavigationView {
         recyclerCourt.adapter = adapter
     }
 
-    fun setPresenter(navigationPresenter: NavigationPresenterImpl){
-        this.navigationPresenterImpl = navigationPresenter
-    }
-
     override fun onResume() {
         fillListCourts()
         super.onResume()
     }
 
-
+    fun setPresenter(navigationPresenter: NavigationPresenterImpl) {
+        this.navigationPresenter = navigationPresenter
+    }
 }
