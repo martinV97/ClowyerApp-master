@@ -21,6 +21,7 @@ import com.dmd.martin.clowyer.navigation.presenter.NavigationPresenterImpl
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() , ViewPager.OnPageChangeListener, TabHost.OnTabChangeListener, NavigationView{
+
     private val listF: MutableList<android.support.v4.app.Fragment> = mutableListOf()
     private var caseFragment = CaseFragment()
     private var clientFragment = ClientFragment()
@@ -122,6 +123,18 @@ class MainActivity : AppCompatActivity() , ViewPager.OnPageChangeListener, TabHo
         val intent = Intent(this, CaseActivity::class.java)
         intent.putExtras(bundle)
         startActivity(intent)
+    }
+
+    override fun showCreateCase() {
+        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+    }
+
+    override fun showCreateClient() {
+        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+    }
+
+    override fun showCreateCourt() {
+        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
     }
 
     override fun showError(error: String) {

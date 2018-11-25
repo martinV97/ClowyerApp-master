@@ -4,11 +4,11 @@ import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import com.dmd.martin.clowyer.R
 
-class ClientActivity : AppCompatActivity() {
+class AddClientActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_client)
+        setContentView(R.layout.activity_add_client)
         showToolbar(getString(R.string.toolbar_title_create_client), true)
     }
 

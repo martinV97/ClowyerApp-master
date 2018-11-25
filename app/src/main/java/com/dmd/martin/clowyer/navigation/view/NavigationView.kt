@@ -11,6 +11,9 @@ interface NavigationView {
     fun showClient(client: ItemClient)
     fun showCourt(court: ItemCourt)
     fun showError(error: String)
+    fun showCreateCase()
+    fun showCreateClient()
+    fun showCreateCourt()
     fun showSearchError(error: String)
     fun showDeleteError(error: String)
 }

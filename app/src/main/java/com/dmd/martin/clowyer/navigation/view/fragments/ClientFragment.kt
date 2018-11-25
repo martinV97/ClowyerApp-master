@@ -10,10 +10,9 @@ import android.view.ViewGroup
 import android.widget.LinearLayout
 
 import com.dmd.martin.clowyer.R
-import com.dmd.martin.clowyer.activities.ClientActivity
+import com.dmd.martin.clowyer.activities.AddClientActivity
 import com.dmd.martin.clowyer.adapters.ClientAdapterRecyclerView
 import com.dmd.martin.clowyer.constants.Constants
-import com.dmd.martin.clowyer.navigation.presenter.NavigationPresenter
 import com.dmd.martin.clowyer.navigation.presenter.NavigationPresenterImpl
 import kotlinx.android.synthetic.main.fragment_client.*
 
@@ -28,7 +27,7 @@ class ClientFragment: Fragment(){
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
         fillListClient()
-        openCreateClient()
+        fabClient.setOnClickListener {navigationPresenter!!.showCreateClient()}
     }
 
     private fun fillListClient(){
@@ -37,12 +36,6 @@ class ClientFragment: Fragment(){
         recyclerClients.layoutManager = linearLayout
         var adapter = ClientAdapterRecyclerView(Constants.listClients, activity, R.layout.cardview_client)
         recyclerClients.adapter = adapter
-    }
-
-    private fun openCreateClient(){
-        fabClient.setOnClickListener {
-            startActivity(Intent(this.context, ClientActivity::class.java))
-        }
     }
 
     override fun onResume() {
